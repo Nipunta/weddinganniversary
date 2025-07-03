@@ -3,6 +3,146 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Dynamic Animated Background Styles */
+@keyframes flowing-waves {
+  0% {
+    transform: translateX(-100%) translateY(-50%) rotate(0deg);
+    background-position: 0% 50%;
+  }
+  25% {
+    transform: translateX(-50%) translateY(-25%) rotate(90deg);
+    background-position: 25% 25%;
+  }
+  50% {
+    transform: translateX(0%) translateY(0%) rotate(180deg);
+    background-position: 50% 50%;
+  }
+  75% {
+    transform: translateX(50%) translateY(25%) rotate(270deg);
+    background-position: 75% 75%;
+  }
+  100% {
+    transform: translateX(100%) translateY(50%) rotate(360deg);
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes floating-orb {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) scale(1);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translateY(-20px) translateX(10px) scale(1.1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-40px) translateX(-5px) scale(0.9);
+    opacity: 0.4;
+  }
+  75% {
+    transform: translateY(-20px) translateX(-15px) scale(1.05);
+    opacity: 0.6;
+  }
+}
+
+@keyframes mesh-gradient {
+  0% {
+    background-position: 0% 0%;
+    transform: scale(1) rotate(0deg);
+  }
+  33% {
+    background-position: 50% 50%;
+    transform: scale(1.1) rotate(120deg);
+  }
+  66% {
+    background-position: 100% 100%;
+    transform: scale(0.9) rotate(240deg);
+  }
+  100% {
+    background-position: 0% 0%;
+    transform: scale(1) rotate(360deg);
+  }
+}
+
+@keyframes light-rays {
+  0%, 100% {
+    opacity: 0.1;
+    transform: translateX(0px);
+  }
+  50% {
+    opacity: 0.3;
+    transform: translateX(10px);
+  }
+}
+
+/* Floating Orbs */
+.floating-orb {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.3) 0%, rgba(245, 158, 11, 0.2) 50%, transparent 100%);
+  filter: blur(1px);
+  animation: floating-orb 8s ease-in-out infinite;
+}
+
+.floating-orb-1 {
+  width: 120px;
+  height: 120px;
+  top: 10%;
+  left: 15%;
+  animation-delay: 0s;
+  animation-duration: 12s;
+}
+
+.floating-orb-2 {
+  width: 80px;
+  height: 80px;
+  top: 60%;
+  right: 20%;
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+
+.floating-orb-3 {
+  width: 100px;
+  height: 100px;
+  bottom: 20%;
+  left: 25%;
+  animation-delay: -6s;
+  animation-duration: 14s;
+}
+
+.floating-orb-4 {
+  width: 60px;
+  height: 60px;
+  top: 30%;
+  right: 40%;
+  animation-delay: -9s;
+  animation-duration: 11s;
+}
+
+.floating-orb-5 {
+  width: 90px;
+  height: 90px;
+  bottom: 40%;
+  right: 10%;
+  animation-delay: -12s;
+  animation-duration: 13s;
+}
+
+/* Animation Classes */
+.animate-flowing-waves {
+  animation: flowing-waves 20s linear infinite;
+}
+
+.animate-mesh-gradient {
+  animation: mesh-gradient 25s ease-in-out infinite;
+}
+
+.animate-light-rays {
+  animation: light-rays 15s ease-in-out infinite;
+}
+
 /* Kaleidoscope Background Animation */
 @keyframes kaleidoscope {
   0% {
@@ -954,10 +1094,40 @@ body {
   }
 }
 
+/* Radial gradient utility */
+.bg-gradient-radial {
+  background: radial-gradient(var(--tw-gradient-stops));
+}
+
 /* Mobile optimizations */
 @media (max-width: 768px) {
-  .animate-sparkle {
-    animation-duration: 1.5s;
+  .floating-orb {
+    animation-duration: 6s;
+  }
+  
+  .floating-orb-1 {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .floating-orb-2 {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .floating-orb-3 {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .floating-orb-4 {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .floating-orb-5 {
+    width: 65px;
+    height: 65px;
   }
 }
 
@@ -984,7 +1154,14 @@ body {
     animation: none !important;
   }
   
-  .kaleidoscope-bg {
+  .floating-orb {
+    animation: none !important;
+    opacity: 0.2 !important;
+  }
+  
+  .animate-flowing-waves,
+  .animate-mesh-gradient,
+  .animate-light-rays {
     animation: none !important;
   }
 }

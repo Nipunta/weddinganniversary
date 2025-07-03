@@ -39,35 +39,42 @@ const FullInvitationPage: React.FC = () => {
 
   return (
     <div className="min-h-screen relative">
-      {/* Kaleidoscope Background Animation */}
+      {/* Dynamic Animated Background */}
       <div className="fixed inset-0 overflow-hidden">
-        <div className="kaleidoscope-bg"></div>
+        {/* Flowing Gradient Waves */}
+        <div className="absolute inset-0 animate-flowing-waves opacity-30">
+          <div className="absolute inset-0 bg-gradient-to-br from-amber-200/20 via-yellow-300/15 to-orange-200/20"></div>
+        </div>
+        
+        {/* Floating Orbs */}
+        <div className="absolute inset-0">
+          <div className="floating-orb floating-orb-1"></div>
+          <div className="floating-orb floating-orb-2"></div>
+          <div className="floating-orb floating-orb-3"></div>
+          <div className="floating-orb floating-orb-4"></div>
+          <div className="floating-orb floating-orb-5"></div>
+        </div>
+        
+        {/* Subtle Mesh Gradient */}
+        <div className="absolute inset-0 animate-mesh-gradient opacity-25">
+          <div className="absolute inset-0 bg-gradient-radial from-amber-300/10 via-transparent to-yellow-200/10"></div>
+        </div>
+        
+        {/* Gentle Light Rays */}
+        <div className="absolute inset-0 animate-light-rays opacity-20">
+          <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-amber-300/30 to-transparent transform rotate-12"></div>
+          <div className="absolute top-0 left-2/4 w-px h-full bg-gradient-to-b from-transparent via-yellow-300/20 to-transparent transform -rotate-6"></div>
+          <div className="absolute top-0 left-3/4 w-px h-full bg-gradient-to-b from-transparent via-orange-300/25 to-transparent transform rotate-8"></div>
+        </div>
       </div>
 
-      {/* Background Image - New provided image */}
+      {/* Static Background Image Overlay */}
       <div 
-        className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-70"
+        className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-40 mix-blend-soft-light"
         style={{
           backgroundImage: `url('/bg2 copy copy copy.jpg')`,
         }}
       />
-
-      {/* Sparkle Effects */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        {[...Array(30)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute animate-sparkle"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-            }}
-          >
-            <div className="text-yellow-300 text-xs">✨</div>
-          </div>
-        ))}
-      </div>
 
       <div className="relative z-10">
         <HeroSection 
