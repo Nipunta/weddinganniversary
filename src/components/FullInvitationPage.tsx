@@ -68,14 +68,6 @@ const FullInvitationPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Static Background Image Overlay */}
-      <div 
-        className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-40 mix-blend-soft-light"
-        style={{
-          backgroundImage: `url('/bg2 copy copy copy.jpg')`,
-        }}
-      />
-
       <div className="relative z-10">
         <HeroSection 
           ref={(el) => addSectionRef(el, 0)}
