@@ -37,145 +37,205 @@ const FullInvitationPage: React.FC = () => {
     if (el) sectionsRef.current[index] = el;
   };
 
-  // Generate falling petals
+  // Generate natural falling petals
   const generateFallingPetals = () => {
     const petals = [];
-    for (let i = 0; i < 15; i++) {
+    for (let i = 0; i < 20; i++) {
+      const driftX = (Math.random() - 0.5) * 100; // Random horizontal drift
       petals.push(
         <div
           key={i}
           className="falling-petal"
           style={{
             left: `${Math.random() * 100}%`,
-            animationDuration: `${8 + Math.random() * 6}s`,
-            animationDelay: `${Math.random() * 8}s`,
-            animationTimingFunction: 'linear',
-          }}
+            animationDuration: `${10 + Math.random() * 8}s`,
+            animationDelay: `${Math.random() * 10}s`,
+            '--drift-x': `${driftX}px`,
+          } as React.CSSProperties}
         />
       );
     }
     return petals;
   };
 
-  // Generate section-specific background elements
-  const generateSectionElements = (sectionIndex: number) => {
+  // Generate Hero Section - Gold Shimmer Waves and Light Rays
+  const generateHeroElements = () => {
     const elements = [];
     
-    switch (sectionIndex) {
-      case 0: // Hero Section - Golden Diamonds
-        for (let i = 0; i < 6; i++) {
-          elements.push(
-            <div
-              key={`hero-${i}`}
-              className="hero-diamond"
-              style={{
-                top: `${Math.random() * 80 + 10}%`,
-                left: `${Math.random() * 80 + 10}%`,
-                animationDelay: `${i * 0.8}s`,
-              }}
-            />
-          );
-        }
-        break;
-        
-      case 1: // Event Details - Blue Bubbles
-        for (let i = 0; i < 8; i++) {
-          elements.push(
-            <div
-              key={`event-${i}`}
-              className="event-bubble"
-              style={{
-                left: `${Math.random() * 90 + 5}%`,
-                width: `${40 + Math.random() * 30}px`,
-                height: `${40 + Math.random() * 30}px`,
-                animationDelay: `${i * 1.5}s`,
-              }}
-            />
-          );
-        }
-        break;
-        
-      case 2: // Memories Gallery - Pink Hearts
-        for (let i = 0; i < 10; i++) {
-          elements.push(
-            <div
-              key={`memories-${i}`}
-              className="memories-heart"
-              style={{
-                top: `${Math.random() * 80 + 10}%`,
-                left: `${Math.random() * 80 + 10}%`,
-                animationDelay: `${i * 0.6}s`,
-              }}
-            />
-          );
-        }
-        break;
-        
-      case 3: // Guest Wishes - Purple Stars
-        for (let i = 0; i < 12; i++) {
-          elements.push(
-            <div
-              key={`wishes-${i}`}
-              className="wishes-star"
-              style={{
-                top: `${Math.random() * 80 + 10}%`,
-                left: `${Math.random() * 80 + 10}%`,
-                animationDelay: `${i * 0.3}s`,
-              }}
-            />
-          );
-        }
-        break;
-        
-      case 4: // Local Attractions - Green Circles
-        for (let i = 0; i < 6; i++) {
-          elements.push(
-            <div
-              key={`attractions-${i}`}
-              className="attractions-circle"
-              style={{
-                top: `${Math.random() * 60 + 20}%`,
-                width: `${50 + Math.random() * 40}px`,
-                height: `${50 + Math.random() * 40}px`,
-                animationDelay: `${i * 2.5}s`,
-              }}
-            />
-          );
-        }
-        break;
-        
-      case 5: // Accept Invitation - Golden Sparkles
-        for (let i = 0; i < 15; i++) {
-          elements.push(
-            <div
-              key={`invitation-${i}`}
-              className="invitation-sparkle"
-              style={{
-                top: `${Math.random() * 80 + 10}%`,
-                left: `${Math.random() * 80 + 10}%`,
-                animationDelay: `${i * 0.2}s`,
-              }}
-            />
-          );
-        }
-        break;
-        
-      case 6: // Contact Section - Indigo Waves
-        for (let i = 0; i < 4; i++) {
-          elements.push(
-            <div
-              key={`contact-${i}`}
-              className="contact-wave"
-              style={{
-                top: `${20 + i * 20}%`,
-                animationDelay: `${i * 2}s`,
-              }}
-            />
-          );
-        }
-        break;
+    // Gold shimmer waves
+    for (let i = 0; i < 3; i++) {
+      elements.push(
+        <div
+          key={`shimmer-${i}`}
+          className="hero-shimmer-wave"
+          style={{
+            top: `${20 + i * 30}%`,
+            animationDelay: `${i * 3}s`,
+            animationDuration: `${8 + i * 2}s`,
+          }}
+        />
+      );
     }
     
+    // Light rays
+    for (let i = 0; i < 5; i++) {
+      elements.push(
+        <div
+          key={`ray-${i}`}
+          className="hero-light-ray"
+          style={{
+            left: `${15 + i * 20}%`,
+            animationDelay: `${i * 1.5}s`,
+            animationDuration: `${6 + i}s`,
+          }}
+        />
+      );
+    }
+    
+    return elements;
+  };
+
+  // Generate Event Details - Twilight Sky with Floating Lanterns
+  const generateEventElements = () => {
+    const elements = [];
+    
+    // Twilight sky background
+    elements.push(
+      <div key="twilight" className="twilight-sky" />
+    );
+    
+    // Floating lanterns
+    for (let i = 0; i < 6; i++) {
+      const driftX = (Math.random() - 0.5) * 60;
+      elements.push(
+        <div
+          key={`lantern-${i}`}
+          className="floating-lantern"
+          style={{
+            left: `${Math.random() * 80 + 10}%`,
+            animationDelay: `${i * 2.5}s`,
+            animationDuration: `${15 + Math.random() * 5}s`,
+            '--lantern-drift': `${driftX}px`,
+          } as React.CSSProperties}
+        />
+      );
+    }
+    
+    return elements;
+  };
+
+  // Generate Memories Gallery - Film Reel and Photo Particles
+  const generateMemoriesElements = () => {
+    const elements = [];
+    
+    // Film reel strip
+    elements.push(
+      <div key="film-reel" className="film-reel-strip" />
+    );
+    
+    // Vignette glow
+    elements.push(
+      <div key="vignette" className="vignette-glow" />
+    );
+    
+    // Photo particles
+    for (let i = 0; i < 8; i++) {
+      elements.push(
+        <div
+          key={`photo-${i}`}
+          className="photo-particle"
+          style={{
+            left: `${Math.random() * 90 + 5}%`,
+            animationDelay: `${i * 1.5}s`,
+            animationDuration: `${12 + Math.random() * 4}s`,
+          }}
+        />
+      );
+    }
+    
+    return elements;
+  };
+
+  // Generate Local Attractions - Rolling Hills Landscape
+  const generateAttractionsElements = () => {
+    const elements = [];
+    
+    // Rolling hills
+    elements.push(
+      <div key="hills" className="rolling-hills" />
+    );
+    
+    // Landmark icons
+    for (let i = 0; i < 4; i++) {
+      elements.push(
+        <div
+          key={`landmark-${i}`}
+          className="landmark-icon"
+          style={{
+            top: `${30 + Math.random() * 40}%`,
+            left: `${20 + i * 20}%`,
+            animationDelay: `${i * 2}s`,
+          }}
+        />
+      );
+    }
+    
+    return elements;
+  };
+
+  // Generate Guest Wishes - Purple Stars (keeping original)
+  const generateWishesElements = () => {
+    const elements = [];
+    for (let i = 0; i < 12; i++) {
+      elements.push(
+        <div
+          key={`wishes-${i}`}
+          className="wishes-star"
+          style={{
+            top: `${Math.random() * 80 + 10}%`,
+            left: `${Math.random() * 80 + 10}%`,
+            animationDelay: `${i * 0.3}s`,
+          }}
+        />
+      );
+    }
+    return elements;
+  };
+
+  // Generate Accept Invitation - Golden Sparkles (keeping original)
+  const generateInvitationElements = () => {
+    const elements = [];
+    for (let i = 0; i < 15; i++) {
+      elements.push(
+        <div
+          key={`invitation-${i}`}
+          className="invitation-sparkle"
+          style={{
+            top: `${Math.random() * 80 + 10}%`,
+            left: `${Math.random() * 80 + 10}%`,
+            animationDelay: `${i * 0.2}s`,
+          }}
+        />
+      );
+    }
+    return elements;
+  };
+
+  // Generate Contact Section - Indigo Waves (keeping original)
+  const generateContactElements = () => {
+    const elements = [];
+    for (let i = 0; i < 4; i++) {
+      elements.push(
+        <div
+          key={`contact-${i}`}
+          className="contact-wave"
+          style={{
+            top: `${20 + i * 20}%`,
+            animationDelay: `${i * 2}s`,
+          }}
+        />
+      );
+    }
     return elements;
   };
 
@@ -209,17 +269,17 @@ const FullInvitationPage: React.FC = () => {
           <div className="absolute top-0 left-3/4 w-px h-full bg-gradient-to-b from-transparent via-orange-300/25 to-transparent transform rotate-8"></div>
         </div>
 
-        {/* Falling Petals */}
+        {/* Natural Falling Petals */}
         <div className="absolute inset-0 pointer-events-none">
           {generateFallingPetals()}
         </div>
       </div>
 
       <div className="relative z-10">
-        {/* Hero Section with Golden Diamonds */}
+        {/* Hero Section with Gold Shimmer Waves */}
         <div className="relative">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {generateSectionElements(0)}
+            {generateHeroElements()}
           </div>
           <HeroSection 
             ref={(el) => addSectionRef(el, 0)}
@@ -228,10 +288,10 @@ const FullInvitationPage: React.FC = () => {
           />
         </div>
 
-        {/* Event Details with Blue Bubbles */}
+        {/* Event Details with Twilight Sky and Lanterns */}
         <div className="relative">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {generateSectionElements(1)}
+            {generateEventElements()}
           </div>
           <EventDetails 
             ref={(el) => addSectionRef(el, 1)}
@@ -240,10 +300,10 @@ const FullInvitationPage: React.FC = () => {
           />
         </div>
 
-        {/* Memories Gallery with Pink Hearts */}
+        {/* Memories Gallery with Film Reel and Photo Particles */}
         <div className="relative">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {generateSectionElements(2)}
+            {generateMemoriesElements()}
           </div>
           <MemoriesGallery 
             ref={(el) => addSectionRef(el, 2)}
@@ -255,7 +315,7 @@ const FullInvitationPage: React.FC = () => {
         {/* Guest Wishes with Purple Stars */}
         <div className="relative">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {generateSectionElements(3)}
+            {generateWishesElements()}
           </div>
           <GuestWishes 
             ref={(el) => addSectionRef(el, 3)}
@@ -264,10 +324,10 @@ const FullInvitationPage: React.FC = () => {
           />
         </div>
 
-        {/* Local Attractions with Green Circles */}
+        {/* Local Attractions with Rolling Hills Landscape */}
         <div className="relative">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {generateSectionElements(4)}
+            {generateAttractionsElements()}
           </div>
           <LocalAttractions 
             ref={(el) => addSectionRef(el, 4)}
@@ -279,7 +339,7 @@ const FullInvitationPage: React.FC = () => {
         {/* Accept Invitation with Golden Sparkles */}
         <div className="relative">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {generateSectionElements(5)}
+            {generateInvitationElements()}
           </div>
           <AcceptInvitation 
             ref={(el) => addSectionRef(el, 5)}
@@ -291,7 +351,7 @@ const FullInvitationPage: React.FC = () => {
         {/* Contact Section with Indigo Waves */}
         <div className="relative">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {generateSectionElements(6)}
+            {generateContactElements()}
           </div>
           <ContactSection 
             ref={(el) => addSectionRef(el, 6)}

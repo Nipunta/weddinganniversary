@@ -76,10 +76,10 @@
   }
 }
 
-/* Falling Petals Animation */
+/* Natural Falling Petals Animation */
 @keyframes falling-petals {
   0% {
-    transform: translateY(-100vh) rotate(0deg);
+    transform: translateY(-100vh) translateX(0px) rotate(0deg);
     opacity: 0;
   }
   10% {
@@ -89,7 +89,7 @@
     opacity: 1;
   }
   100% {
-    transform: translateY(100vh) rotate(360deg);
+    transform: translateY(100vh) translateX(var(--drift-x, 0px)) rotate(360deg);
     opacity: 0;
   }
 }
@@ -99,51 +99,128 @@
     transform: translateX(0px);
   }
   25% {
-    transform: translateX(10px);
+    transform: translateX(15px);
   }
   75% {
-    transform: translateX(-10px);
+    transform: translateX(-15px);
   }
 }
 
-/* Section-specific Background Elements */
-@keyframes hero-diamonds {
-  0%, 100% {
-    transform: rotate(0deg) scale(1);
-    opacity: 0.2;
-  }
-  50% {
-    transform: rotate(180deg) scale(1.2);
-    opacity: 0.4;
-  }
-}
-
-@keyframes event-bubbles {
+/* Hero Section - Gold Shimmer Waves */
+@keyframes gold-shimmer-waves {
   0% {
-    transform: translateY(100%) scale(0.5);
+    transform: translateX(-100%) skewX(-15deg);
     opacity: 0;
   }
   50% {
     opacity: 0.6;
-    transform: translateY(50%) scale(1);
   }
   100% {
-    transform: translateY(-100%) scale(0.8);
+    transform: translateX(200%) skewX(-15deg);
     opacity: 0;
   }
 }
 
-@keyframes memories-hearts {
+@keyframes light-rays-hero {
   0%, 100% {
-    transform: scale(1) rotate(0deg);
+    opacity: 0.2;
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    opacity: 0.4;
+    transform: translateY(-10px) rotate(2deg);
+  }
+}
+
+/* Event Details - Twilight Sky with Lanterns */
+@keyframes twilight-glow {
+  0%, 100% {
+    background-position: 0% 50%;
     opacity: 0.3;
   }
   50% {
-    transform: scale(1.3) rotate(180deg);
+    background-position: 100% 50%;
+    opacity: 0.5;
+  }
+}
+
+@keyframes floating-lanterns {
+  0% {
+    transform: translateY(100%) translateX(0px) scale(0.8);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-100%) translateX(var(--lantern-drift, 20px)) scale(1.1);
+    opacity: 0;
+  }
+}
+
+/* Memories Gallery - Film Reel and Photo Particles */
+@keyframes film-reel-scroll {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes photo-particles {
+  0% {
+    transform: translateY(100%) rotate(0deg) scale(0.5);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.6;
+  }
+  75% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-100%) rotate(180deg) scale(0.8);
+    opacity: 0;
+  }
+}
+
+@keyframes vignette-glow {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.05);
+  }
+}
+
+/* Local Attractions - Scrolling Landscape */
+@keyframes rolling-hills {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes landmark-float {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(-15px) scale(1.1);
     opacity: 0.6;
   }
 }
 
+/* Purple Stars for Guest Wishes (keeping this one) */
 @keyframes wishes-stars {
   0% {
     transform: scale(0) rotate(0deg);
@@ -159,20 +236,7 @@
   }
 }
 
-@keyframes attractions-circles {
-  0% {
-    transform: translateX(-100%) rotate(0deg);
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    transform: translateX(100%) rotate(360deg);
-    opacity: 0;
-  }
-}
-
+/* Golden Sparkles for Accept Invitation (keeping this one) */
 @keyframes invitation-sparkles {
   0%, 100% {
     transform: scale(0.5) rotate(0deg);
@@ -184,6 +248,7 @@
   }
 }
 
+/* Contact Section - Indigo Waves (keeping this one) */
 @keyframes contact-waves {
   0% {
     transform: translateY(0) scaleY(1);
@@ -253,63 +318,208 @@
   animation-duration: 13s;
 }
 
-/* Falling Petals */
+/* Natural Falling Petals */
 .falling-petal {
   position: absolute;
-  width: 12px;
-  height: 12px;
-  background: linear-gradient(45deg, #fbbf24, #f59e0b);
+  width: 14px;
+  height: 14px;
+  background: linear-gradient(45deg, #fbbf24, #f59e0b, #d97706);
   border-radius: 50% 0 50% 0;
   animation: falling-petals linear infinite, petal-sway ease-in-out infinite;
   pointer-events: none;
+  --drift-x: 0px;
 }
 
-/* Section Background Elements */
-.hero-diamond {
+/* Hero Section - Gold Shimmer Waves */
+.hero-shimmer-wave {
+  position: absolute;
+  width: 200%;
+  height: 100px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(251, 191, 36, 0.3),
+    rgba(245, 158, 11, 0.4),
+    rgba(251, 191, 36, 0.3),
+    transparent
+  );
+  animation: gold-shimmer-waves 8s ease-in-out infinite;
+  transform: skewX(-15deg);
+}
+
+.hero-light-ray {
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(251, 191, 36, 0.4),
+    rgba(245, 158, 11, 0.3),
+    transparent
+  );
+  animation: light-rays-hero 6s ease-in-out infinite;
+}
+
+/* Event Details - Twilight Sky with Lanterns */
+.twilight-sky {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.2),
+    rgba(139, 92, 246, 0.3),
+    rgba(168, 85, 247, 0.2),
+    rgba(236, 72, 153, 0.2)
+  );
+  background-size: 400% 400%;
+  animation: twilight-glow 12s ease-in-out infinite;
+}
+
+.floating-lantern {
   position: absolute;
   width: 40px;
-  height: 40px;
-  background: linear-gradient(45deg, rgba(251, 191, 36, 0.3), rgba(245, 158, 11, 0.2));
-  transform: rotate(45deg);
-  animation: hero-diamonds 8s ease-in-out infinite;
+  height: 60px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(251, 191, 36, 0.6),
+    rgba(245, 158, 11, 0.4),
+    rgba(217, 119, 6, 0.2)
+  );
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  animation: floating-lanterns 15s linear infinite;
+  --lantern-drift: 0px;
 }
 
-.event-bubble {
-  position: absolute;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.3), rgba(147, 197, 253, 0.2));
-  animation: event-bubbles 12s linear infinite;
-}
-
-.memories-heart {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background: rgba(236, 72, 153, 0.4);
-  transform: rotate(-45deg);
-  animation: memories-hearts 6s ease-in-out infinite;
-}
-
-.memories-heart::before,
-.memories-heart::after {
+.floating-lantern::after {
   content: '';
   position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 20px;
-  height: 20px;
-  background: rgba(236, 72, 153, 0.4);
+  height: 10px;
+  background: rgba(251, 191, 36, 0.3);
   border-radius: 50%;
 }
 
-.memories-heart::before {
-  top: -10px;
+/* Memories Gallery - Film Reel and Photo Particles */
+.film-reel-strip {
+  position: absolute;
+  top: 20%;
+  width: 200%;
+  height: 60px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.1) 0px,
+    rgba(0, 0, 0, 0.1) 20px,
+    transparent 20px,
+    transparent 40px
+  );
+  border-top: 2px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+  animation: film-reel-scroll 20s linear infinite;
+}
+
+.film-reel-strip::before {
+  content: '';
+  position: absolute;
+  top: 50%;
   left: 0;
+  width: 100%;
+  height: 20px;
+  transform: translateY(-50%);
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.3) 0px,
+    rgba(0, 0, 0, 0.3) 10px,
+    transparent 10px,
+    transparent 30px
+  );
 }
 
-.memories-heart::after {
-  top: 0;
-  left: 10px;
+.photo-particle {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(
+    45deg,
+    rgba(236, 72, 153, 0.4),
+    rgba(219, 39, 119, 0.3),
+    rgba(190, 24, 93, 0.2)
+  );
+  border-radius: 4px;
+  animation: photo-particles 12s linear infinite;
 }
 
+.vignette-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    transparent 30%,
+    rgba(236, 72, 153, 0.1) 70%,
+    rgba(219, 39, 119, 0.2) 100%
+  );
+  animation: vignette-glow 8s ease-in-out infinite;
+}
+
+/* Local Attractions - Rolling Hills Landscape */
+.rolling-hills {
+  position: absolute;
+  bottom: 0;
+  width: 200%;
+  height: 150px;
+  background: linear-gradient(
+    to right,
+    rgba(34, 197, 94, 0.3),
+    rgba(74, 222, 128, 0.2),
+    rgba(34, 197, 94, 0.3),
+    rgba(16, 185, 129, 0.2),
+    rgba(34, 197, 94, 0.3)
+  );
+  clip-path: polygon(
+    0% 100%,
+    0% 60%,
+    10% 50%,
+    20% 55%,
+    30% 45%,
+    40% 50%,
+    50% 40%,
+    60% 45%,
+    70% 35%,
+    80% 40%,
+    90% 30%,
+    100% 35%,
+    100% 100%
+  );
+  animation: rolling-hills 25s linear infinite;
+}
+
+.landmark-icon {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(
+    45deg,
+    rgba(34, 197, 94, 0.5),
+    rgba(74, 222, 128, 0.4)
+  );
+  border-radius: 50%;
+  animation: landmark-float 8s ease-in-out infinite;
+}
+
+.landmark-icon::after {
+  content: '🏛️';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  opacity: 0.8;
+}
+
+/* Guest Wishes - Purple Stars (keeping) */
 .wishes-star {
   position: absolute;
   width: 0;
@@ -332,13 +542,7 @@
   border-top: 6px solid rgba(168, 85, 247, 0.4);
 }
 
-.attractions-circle {
-  position: absolute;
-  border-radius: 50%;
-  background: linear-gradient(45deg, rgba(34, 197, 94, 0.3), rgba(74, 222, 128, 0.2));
-  animation: attractions-circles 15s linear infinite;
-}
-
+/* Accept Invitation - Golden Sparkles (keeping) */
 .invitation-sparkle {
   position: absolute;
   width: 16px;
@@ -348,6 +552,7 @@
   animation: invitation-sparkles 3s ease-in-out infinite;
 }
 
+/* Contact Section - Indigo Waves (keeping) */
 .contact-wave {
   position: absolute;
   width: 100%;
@@ -1317,33 +1522,34 @@
   }
 
   .falling-petal {
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
   }
 
-  .hero-diamond {
-    width: 25px;
-    height: 25px;
+  .hero-shimmer-wave {
+    height: 60px;
   }
 
-  .event-bubble {
+  .floating-lantern {
     width: 30px;
-    height: 30px;
+    height: 45px;
   }
 
-  .memories-heart {
-    width: 15px;
-    height: 15px;
+  .film-reel-strip {
+    height: 40px;
   }
 
-  .attractions-circle {
+  .rolling-hills {
+    height: 100px;
+  }
+
+  .landmark-icon {
     width: 35px;
     height: 35px;
   }
 
-  .invitation-sparkle {
-    width: 12px;
-    height: 12px;
+  .landmark-icon::after {
+    font-size: 18px;
   }
 }
 
@@ -1386,11 +1592,16 @@
     display: none;
   }
 
-  .hero-diamond,
-  .event-bubble,
-  .memories-heart,
+  .hero-shimmer-wave,
+  .hero-light-ray,
+  .twilight-sky,
+  .floating-lantern,
+  .film-reel-strip,
+  .photo-particle,
+  .vignette-glow,
+  .rolling-hills,
+  .landmark-icon,
   .wishes-star,
-  .attractions-circle,
   .invitation-sparkle,
   .contact-wave {
     animation: none !important;
