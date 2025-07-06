@@ -24,6 +24,33 @@ const EntrancePage: React.FC<EntrancePageProps> = ({ onEnter }) => {
     }, 3200);
   };
 
+  // Generate entrance falling petals with reduced count
+  const generateEntrancePetals = () => {
+    const petals = [];
+    for (let i = 0; i < 8; i++) {
+      // Enhanced drift and rotation for more natural movement
+      const driftX = (Math.random() - 0.5) * 100; // Slightly reduced drift range for entrance
+      const rotation = Math.random() * 720 + 360; // More rotation variety
+      const swayAmount = Math.random() * 20 + 8; // Variable sway amount
+      
+      petals.push(
+        <div
+          key={i}
+          className="falling-petal"
+          style={{
+            left: `${Math.random() * 100}%`,
+            animationDuration: `${7 + Math.random() * 6}s`, // 7-13 seconds for varied speeds
+            animationDelay: `${Math.random() * 8}s`, // Spread out over 8 seconds
+            '--drift-x': `${driftX}px`,
+            '--rotation': `${rotation}deg`,
+            '--sway-amount': `${swayAmount}px`,
+          } as React.CSSProperties}
+        />
+      );
+    }
+    return petals;
+  };
+
   return (
     <div className="min-h-screen relative overflow-hidden">
       {/* Background Image - New image */}
@@ -50,6 +77,11 @@ const EntrancePage: React.FC<EntrancePageProps> = ({ onEnter }) => {
             <div className="text-amber-300 text-xs opacity-70">✨</div>
           </div>
         ))}
+      </div>
+
+      {/* Entrance Falling Petals */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {generateEntrancePetals()}
       </div>
 
       {/* Ripple Animation */}

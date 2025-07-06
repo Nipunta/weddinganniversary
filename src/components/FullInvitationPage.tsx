@@ -37,10 +37,10 @@ const FullInvitationPage: React.FC = () => {
     if (el) sectionsRef.current[index] = el;
   };
 
-  // Generate natural falling petals with enhanced vertical movement
+  // Generate natural falling petals with enhanced vertical movement - REDUCED COUNT
   const generateFallingPetals = () => {
     const petals = [];
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < 15; i++) {
       // Enhanced drift and rotation for more natural movement
       const driftX = (Math.random() - 0.5) * 150; // Increased drift range
       const rotation = Math.random() * 720 + 360; // More rotation variety
@@ -62,28 +62,6 @@ const FullInvitationPage: React.FC = () => {
       );
     }
     return petals;
-  };
-
-  // Generate Golden Dust Trails for Hero Section
-  const generateGoldenDustTrails = () => {
-    const elements = [];
-    
-    for (let i = 0; i < 15; i++) {
-      elements.push(
-        <div
-          key={`dust-${i}`}
-          className="golden-dust-trail"
-          style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-            animationDelay: `${i * 0.8}s`,
-            animationDuration: `${8 + Math.random() * 4}s`,
-          }}
-        />
-      );
-    }
-    
-    return elements;
   };
 
   // Generate Celestial Constellations for Event Details
@@ -200,9 +178,9 @@ const FullInvitationPage: React.FC = () => {
     <div className="min-h-screen relative">
       {/* Dynamic Animated Background */}
       <div className="fixed inset-0 overflow-hidden">
-        {/* Flowing Gradient Waves */}
+        {/* Flowing Gradient Waves - DARKER GRADIENT */}
         <div className="absolute inset-0 animate-flowing-waves opacity-30">
-          <div className="absolute inset-0 bg-gradient-to-br from-amber-200/20 via-yellow-300/15 to-orange-200/20"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-amber-700/10 via-yellow-800/10 to-orange-700/10"></div>
         </div>
         
         {/* Floating Orbs */}
@@ -233,17 +211,12 @@ const FullInvitationPage: React.FC = () => {
       </div>
 
       <div className="relative z-10">
-        {/* Hero Section with Golden Dust Trails */}
-        <div className="relative">
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {generateGoldenDustTrails()}
-          </div>
-          <HeroSection 
-            ref={(el) => addSectionRef(el, 0)}
-            isVisible={visibleSections.has(0)}
-            sectionIndex={0}
-          />
-        </div>
+        {/* Hero Section - REMOVED Golden Dust Trails */}
+        <HeroSection 
+          ref={(el) => addSectionRef(el, 0)}
+          isVisible={visibleSections.has(0)}
+          sectionIndex={0}
+        />
 
         {/* Event Details with Celestial Constellations */}
         <div className="relative">
