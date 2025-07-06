@@ -3,6 +3,183 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Luxurious Dynamic Background for Save The Date */
+@keyframes lux-gradient-shift {
+  0% {
+    background: linear-gradient(135deg, 
+      rgba(139, 69, 19, 0.9) 0%,
+      rgba(160, 82, 45, 0.8) 15%,
+      rgba(218, 165, 32, 0.7) 30%,
+      rgba(255, 215, 0, 0.6) 45%,
+      rgba(255, 140, 0, 0.7) 60%,
+      rgba(205, 92, 92, 0.8) 75%,
+      rgba(128, 0, 128, 0.9) 100%
+    );
+  }
+  25% {
+    background: linear-gradient(225deg, 
+      rgba(75, 0, 130, 0.9) 0%,
+      rgba(138, 43, 226, 0.8) 15%,
+      rgba(186, 85, 211, 0.7) 30%,
+      rgba(255, 20, 147, 0.6) 45%,
+      rgba(255, 69, 0, 0.7) 60%,
+      rgba(255, 140, 0, 0.8) 75%,
+      rgba(255, 215, 0, 0.9) 100%
+    );
+  }
+  50% {
+    background: linear-gradient(315deg, 
+      rgba(25, 25, 112, 0.9) 0%,
+      rgba(72, 61, 139, 0.8) 15%,
+      rgba(123, 104, 238, 0.7) 30%,
+      rgba(147, 112, 219, 0.6) 45%,
+      rgba(221, 160, 221, 0.7) 60%,
+      rgba(255, 182, 193, 0.8) 75%,
+      rgba(255, 228, 225, 0.9) 100%
+    );
+  }
+  75% {
+    background: linear-gradient(45deg, 
+      rgba(139, 0, 0, 0.9) 0%,
+      rgba(178, 34, 34, 0.8) 15%,
+      rgba(220, 20, 60, 0.7) 30%,
+      rgba(255, 20, 147, 0.6) 45%,
+      rgba(255, 105, 180, 0.7) 60%,
+      rgba(255, 182, 193, 0.8) 75%,
+      rgba(255, 240, 245, 0.9) 100%
+    );
+  }
+  100% {
+    background: linear-gradient(135deg, 
+      rgba(139, 69, 19, 0.9) 0%,
+      rgba(160, 82, 45, 0.8) 15%,
+      rgba(218, 165, 32, 0.7) 30%,
+      rgba(255, 215, 0, 0.6) 45%,
+      rgba(255, 140, 0, 0.7) 60%,
+      rgba(205, 92, 92, 0.8) 75%,
+      rgba(128, 0, 128, 0.9) 100%
+    );
+  }
+}
+
+@keyframes shimmer-float {
+  0% {
+    transform: translateY(0px) translateX(0px) scale(0.8);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translateY(-15px) translateX(10px) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-30px) translateX(-5px) scale(1.2);
+    opacity: 1;
+  }
+  75% {
+    transform: translateY(-15px) translateX(-10px) scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(0px) translateX(0px) scale(0.8);
+    opacity: 0.3;
+  }
+}
+
+@keyframes elegant-rays {
+  0%, 100% {
+    opacity: 0.1;
+    transform: translateX(0px) scaleY(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: translateX(5px) scaleY(1.1);
+  }
+}
+
+@keyframes lux-floating-orb {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) scale(1);
+    opacity: 0.4;
+  }
+  25% {
+    transform: translateY(-25px) translateX(15px) scale(1.1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-50px) translateX(-10px) scale(0.9);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translateY(-25px) translateX(-20px) scale(1.05);
+    opacity: 0.7;
+  }
+}
+
+/* Luxurious Background Classes */
+.animate-lux-gradient-shift {
+  animation: lux-gradient-shift 15s ease-in-out infinite;
+}
+
+.animate-elegant-rays {
+  animation: elegant-rays 12s ease-in-out infinite;
+}
+
+.shimmer-particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.8), rgba(255, 165, 0, 0.6), transparent);
+  border-radius: 50%;
+  filter: blur(1px);
+  animation: shimmer-float ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+/* Luxurious Floating Orbs */
+.lux-floating-orb {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.3) 0%, rgba(255, 165, 0, 0.2) 50%, transparent 100%);
+  filter: blur(2px);
+  animation: lux-floating-orb 10s ease-in-out infinite;
+}
+
+.lux-floating-orb-1 {
+  width: 100px;
+  height: 100px;
+  top: 15%;
+  left: 10%;
+  animation-delay: 0s;
+  animation-duration: 12s;
+}
+
+.lux-floating-orb-2 {
+  width: 80px;
+  height: 80px;
+  top: 70%;
+  right: 15%;
+  animation-delay: -3s;
+  animation-duration: 14s;
+}
+
+.lux-floating-orb-3 {
+  width: 120px;
+  height: 120px;
+  bottom: 25%;
+  left: 20%;
+  animation-delay: -6s;
+  animation-duration: 16s;
+}
+
+.lux-floating-orb-4 {
+  width: 70px;
+  height: 70px;
+  top: 40%;
+  right: 30%;
+  animation-delay: -9s;
+  animation-duration: 13s;
+}
+
 /* Dynamic Animated Background Styles */
 @keyframes flowing-waves {
   0% {
@@ -1396,6 +1573,31 @@
   .topographic-background {
     background-size: 30px 30px, 45px 45px;
   }
+
+  .shimmer-particle {
+    width: 6px;
+    height: 6px;
+  }
+
+  .lux-floating-orb-1 {
+    width: 70px;
+    height: 70px;
+  }
+
+  .lux-floating-orb-2 {
+    width: 60px;
+    height: 60px;
+  }
+
+  .lux-floating-orb-3 {
+    width: 80px;
+    height: 80px;
+  }
+
+  .lux-floating-orb-4 {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 /* High contrast mode support */
@@ -1444,6 +1646,14 @@
   .wishes-star,
   .invitation-sparkle,
   .contact-wave {
+    animation: none !important;
+    opacity: 0.3 !important;
+  }
+
+  .animate-lux-gradient-shift,
+  .animate-elegant-rays,
+  .shimmer-particle,
+  .lux-floating-orb {
     animation: none !important;
     opacity: 0.3 !important;
   }

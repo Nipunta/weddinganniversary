@@ -8,13 +8,44 @@ interface SaveTheDatePageProps {
 const SaveTheDatePage: React.FC<SaveTheDatePageProps> = ({ onContinue }) => {
   return (
     <div className="min-h-screen relative overflow-hidden">
-      {/* Background Image - New image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url('/bg copy copy copy.webp')`,
-        }}
-      />
+      {/* Dynamic Luxurious Background */}
+      <div className="absolute inset-0">
+        {/* Shifting Gradient Background */}
+        <div className="absolute inset-0 animate-lux-gradient-shift"></div>
+        
+        {/* Shimmering Particles */}
+        <div className="absolute inset-0 overflow-hidden">
+          {[...Array(25)].map((_, i) => (
+            <div
+              key={i}
+              className="shimmer-particle"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 8}s`,
+                animationDuration: `${4 + Math.random() * 6}s`,
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Elegant Light Rays */}
+        <div className="absolute inset-0 animate-elegant-rays opacity-20">
+          <div className="absolute top-0 left-1/6 w-px h-full bg-gradient-to-b from-transparent via-amber-300/40 to-transparent transform rotate-12"></div>
+          <div className="absolute top-0 left-2/6 w-px h-full bg-gradient-to-b from-transparent via-yellow-300/30 to-transparent transform -rotate-8"></div>
+          <div className="absolute top-0 left-3/6 w-px h-full bg-gradient-to-b from-transparent via-orange-300/35 to-transparent transform rotate-6"></div>
+          <div className="absolute top-0 left-4/6 w-px h-full bg-gradient-to-b from-transparent via-amber-300/25 to-transparent transform -rotate-10"></div>
+          <div className="absolute top-0 left-5/6 w-px h-full bg-gradient-to-b from-transparent via-yellow-300/30 to-transparent transform rotate-15"></div>
+        </div>
+
+        {/* Floating Orbs */}
+        <div className="absolute inset-0">
+          <div className="lux-floating-orb lux-floating-orb-1"></div>
+          <div className="lux-floating-orb lux-floating-orb-2"></div>
+          <div className="lux-floating-orb lux-floating-orb-3"></div>
+          <div className="lux-floating-orb lux-floating-orb-4"></div>
+        </div>
+      </div>
 
       <div className="relative z-10 flex items-center justify-center min-h-screen p-4">
         <div className="text-center max-w-2xl mx-auto">
