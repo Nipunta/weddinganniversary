@@ -37,20 +37,26 @@ const FullInvitationPage: React.FC = () => {
     if (el) sectionsRef.current[index] = el;
   };
 
-  // Generate natural falling petals with proper animation
+  // Generate natural falling petals with enhanced vertical movement
   const generateFallingPetals = () => {
     const petals = [];
-    for (let i = 0; i < 25; i++) {
-      const driftX = (Math.random() - 0.5) * 100; // Random horizontal drift
+    for (let i = 0; i < 30; i++) {
+      // Enhanced drift and rotation for more natural movement
+      const driftX = (Math.random() - 0.5) * 150; // Increased drift range
+      const rotation = Math.random() * 720 + 360; // More rotation variety
+      const swayAmount = Math.random() * 25 + 10; // Variable sway amount
+      
       petals.push(
         <div
           key={i}
           className="falling-petal"
           style={{
             left: `${Math.random() * 100}%`,
-            animationDuration: `${5 + Math.random() * 5}s`,
-            animationDelay: `${Math.random() * 5}s`,
+            animationDuration: `${6 + Math.random() * 8}s`, // 6-14 seconds for varied speeds
+            animationDelay: `${Math.random() * 10}s`, // Spread out over 10 seconds
             '--drift-x': `${driftX}px`,
+            '--rotation': `${rotation}deg`,
+            '--sway-amount': `${swayAmount}px`,
           } as React.CSSProperties}
         />
       );
@@ -220,7 +226,7 @@ const FullInvitationPage: React.FC = () => {
           <div className="absolute top-0 left-3/4 w-px h-full bg-gradient-to-b from-transparent via-orange-300/25 to-transparent transform rotate-8"></div>
         </div>
 
-        {/* Natural Falling Petals */}
+        {/* Natural Falling Petals - Enhanced Vertical Movement */}
         <div className="absolute inset-0 pointer-events-none">
           {generateFallingPetals()}
         </div>

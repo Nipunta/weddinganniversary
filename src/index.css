@@ -76,14 +76,20 @@
   }
 }
 
-/* Natural Falling Petals Animation - Fixed */
+/* Natural Falling Petals Animation - Vertical Fall with Drift */
 @keyframes falling-petals {
   0% {
-    transform: translateY(-10vh) translateX(0px) rotate(0deg);
-    opacity: 1;
+    transform: translateY(-20vh) translateX(0px) rotate(0deg) scale(0.8);
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.8;
+  }
+  95% {
+    opacity: 0.6;
   }
   100% {
-    transform: translateY(110vh) translateX(var(--drift-x, 0px)) rotate(360deg);
+    transform: translateY(120vh) translateX(var(--drift-x, 0px)) rotate(var(--rotation, 360deg)) scale(1.2);
     opacity: 0;
   }
 }
@@ -93,10 +99,10 @@
     transform: translateX(0px);
   }
   25% {
-    transform: translateX(15px);
+    transform: translateX(var(--sway-amount, 15px));
   }
   75% {
-    transform: translateX(-15px);
+    transform: translateX(calc(var(--sway-amount, 15px) * -1));
   }
 }
 
@@ -285,16 +291,19 @@
   animation-duration: 13s;
 }
 
-/* Natural Falling Petals */
+/* Natural Falling Petals - Enhanced with Realistic Movement */
 .falling-petal {
   position: absolute;
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
   background: linear-gradient(45deg, #fbbf24, #f59e0b, #d97706);
   border-radius: 50% 0 50% 0;
   animation: falling-petals linear infinite, petal-sway ease-in-out infinite;
   pointer-events: none;
+  filter: drop-shadow(0 0 3px rgba(251, 191, 36, 0.4));
   --drift-x: 0px;
+  --rotation: 360deg;
+  --sway-amount: 15px;
 }
 
 /* Hero Section - Golden Dust Trails */
