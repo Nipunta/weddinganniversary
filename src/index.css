@@ -94,18 +94,6 @@
   }
 }
 
-@keyframes petal-sway {
-  0%, 100% {
-    transform: translateX(0px);
-  }
-  25% {
-    transform: translateX(var(--sway-amount, 15px));
-  }
-  75% {
-    transform: translateX(calc(var(--sway-amount, 15px) * -1));
-  }
-}
-
 /* Hero Section - Golden Dust Trails */
 @keyframes golden-dust-trail-animation {
   0% {
@@ -298,12 +286,11 @@
   height: 12px;
   background: linear-gradient(45deg, #fbbf24, #f59e0b, #d97706);
   border-radius: 50% 0 50% 0;
-  animation: falling-petals linear infinite, petal-sway ease-in-out infinite;
+  animation: falling-petals linear infinite;
   pointer-events: none;
   filter: drop-shadow(0 0 3px rgba(251, 191, 36, 0.4));
   --drift-x: 0px;
   --rotation: 360deg;
-  --sway-amount: 15px;
 }
 
 /* Hero Section - Golden Dust Trails */
