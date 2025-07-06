@@ -37,10 +37,10 @@ const FullInvitationPage: React.FC = () => {
     if (el) sectionsRef.current[index] = el;
   };
 
-  // Generate natural falling petals
+  // Generate natural falling petals with proper animation
   const generateFallingPetals = () => {
     const petals = [];
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 25; i++) {
       const driftX = (Math.random() - 0.5) * 100; // Random horizontal drift
       petals.push(
         <div
@@ -48,8 +48,8 @@ const FullInvitationPage: React.FC = () => {
           className="falling-petal"
           style={{
             left: `${Math.random() * 100}%`,
-            animationDuration: `${10 + Math.random() * 8}s`,
-            animationDelay: `${Math.random() * 10}s`,
+            animationDuration: `${5 + Math.random() * 5}s`,
+            animationDelay: `${Math.random() * 5}s`,
             '--drift-x': `${driftX}px`,
           } as React.CSSProperties}
         />
@@ -58,35 +58,20 @@ const FullInvitationPage: React.FC = () => {
     return petals;
   };
 
-  // Generate Hero Section - Gold Shimmer Waves and Light Rays
-  const generateHeroElements = () => {
+  // Generate Golden Dust Trails for Hero Section
+  const generateGoldenDustTrails = () => {
     const elements = [];
     
-    // Gold shimmer waves
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 15; i++) {
       elements.push(
         <div
-          key={`shimmer-${i}`}
-          className="hero-shimmer-wave"
+          key={`dust-${i}`}
+          className="golden-dust-trail"
           style={{
-            top: `${20 + i * 30}%`,
-            animationDelay: `${i * 3}s`,
-            animationDuration: `${8 + i * 2}s`,
-          }}
-        />
-      );
-    }
-    
-    // Light rays
-    for (let i = 0; i < 5; i++) {
-      elements.push(
-        <div
-          key={`ray-${i}`}
-          className="hero-light-ray"
-          style={{
-            left: `${15 + i * 20}%`,
-            animationDelay: `${i * 1.5}s`,
-            animationDuration: `${6 + i}s`,
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            animationDelay: `${i * 0.8}s`,
+            animationDuration: `${8 + Math.random() * 4}s`,
           }}
         />
       );
@@ -95,59 +80,20 @@ const FullInvitationPage: React.FC = () => {
     return elements;
   };
 
-  // Generate Event Details - Twilight Sky with Floating Lanterns
-  const generateEventElements = () => {
+  // Generate Celestial Constellations for Event Details
+  const generateCelestialConstellations = () => {
     const elements = [];
     
-    // Twilight sky background
-    elements.push(
-      <div key="twilight" className="twilight-sky" />
-    );
-    
-    // Floating lanterns
-    for (let i = 0; i < 6; i++) {
-      const driftX = (Math.random() - 0.5) * 60;
+    for (let i = 0; i < 20; i++) {
       elements.push(
         <div
-          key={`lantern-${i}`}
-          className="floating-lantern"
+          key={`star-${i}`}
+          className="celestial-star"
           style={{
-            left: `${Math.random() * 80 + 10}%`,
-            animationDelay: `${i * 2.5}s`,
-            animationDuration: `${15 + Math.random() * 5}s`,
-            '--lantern-drift': `${driftX}px`,
-          } as React.CSSProperties}
-        />
-      );
-    }
-    
-    return elements;
-  };
-
-  // Generate Memories Gallery - Film Reel and Photo Particles
-  const generateMemoriesElements = () => {
-    const elements = [];
-    
-    // Film reel strip
-    elements.push(
-      <div key="film-reel" className="film-reel-strip" />
-    );
-    
-    // Vignette glow
-    elements.push(
-      <div key="vignette" className="vignette-glow" />
-    );
-    
-    // Photo particles
-    for (let i = 0; i < 8; i++) {
-      elements.push(
-        <div
-          key={`photo-${i}`}
-          className="photo-particle"
-          style={{
-            left: `${Math.random() * 90 + 5}%`,
-            animationDelay: `${i * 1.5}s`,
-            animationDuration: `${12 + Math.random() * 4}s`,
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            animationDelay: `${i * 0.3}s`,
+            animationDuration: `${3 + Math.random() * 2}s`,
           }}
         />
       );
@@ -156,31 +102,36 @@ const FullInvitationPage: React.FC = () => {
     return elements;
   };
 
-  // Generate Local Attractions - Rolling Hills Landscape
-  const generateAttractionsElements = () => {
+  // Generate Soft Focus Bokeh for Memories Gallery
+  const generateSoftFocusBokeh = () => {
     const elements = [];
     
-    // Rolling hills
-    elements.push(
-      <div key="hills" className="rolling-hills" />
-    );
-    
-    // Landmark icons
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 12; i++) {
       elements.push(
         <div
-          key={`landmark-${i}`}
-          className="landmark-icon"
+          key={`bokeh-${i}`}
+          className="bokeh-circle"
           style={{
-            top: `${30 + Math.random() * 40}%`,
-            left: `${20 + i * 20}%`,
-            animationDelay: `${i * 2}s`,
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            animationDelay: `${i * 1.2}s`,
+            animationDuration: `${10 + Math.random() * 5}s`,
           }}
         />
       );
     }
     
     return elements;
+  };
+
+  // Generate Topographic Lines for Local Attractions
+  const generateTopographicLines = () => {
+    return (
+      <div
+        key="topographic"
+        className="topographic-background"
+      />
+    );
   };
 
   // Generate Guest Wishes - Purple Stars (keeping original)
@@ -276,10 +227,10 @@ const FullInvitationPage: React.FC = () => {
       </div>
 
       <div className="relative z-10">
-        {/* Hero Section with Gold Shimmer Waves */}
+        {/* Hero Section with Golden Dust Trails */}
         <div className="relative">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {generateHeroElements()}
+            {generateGoldenDustTrails()}
           </div>
           <HeroSection 
             ref={(el) => addSectionRef(el, 0)}
@@ -288,10 +239,10 @@ const FullInvitationPage: React.FC = () => {
           />
         </div>
 
-        {/* Event Details with Twilight Sky and Lanterns */}
+        {/* Event Details with Celestial Constellations */}
         <div className="relative">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {generateEventElements()}
+            {generateCelestialConstellations()}
           </div>
           <EventDetails 
             ref={(el) => addSectionRef(el, 1)}
@@ -300,10 +251,10 @@ const FullInvitationPage: React.FC = () => {
           />
         </div>
 
-        {/* Memories Gallery with Film Reel and Photo Particles */}
+        {/* Memories Gallery with Soft Focus Bokeh */}
         <div className="relative">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {generateMemoriesElements()}
+            {generateSoftFocusBokeh()}
           </div>
           <MemoriesGallery 
             ref={(el) => addSectionRef(el, 2)}
@@ -324,10 +275,10 @@ const FullInvitationPage: React.FC = () => {
           />
         </div>
 
-        {/* Local Attractions with Rolling Hills Landscape */}
+        {/* Local Attractions with Topographic Lines */}
         <div className="relative">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            {generateAttractionsElements()}
+            {generateTopographicLines()}
           </div>
           <LocalAttractions 
             ref={(el) => addSectionRef(el, 4)}

@@ -76,20 +76,14 @@
   }
 }
 
-/* Natural Falling Petals Animation */
+/* Natural Falling Petals Animation - Fixed */
 @keyframes falling-petals {
   0% {
-    transform: translateY(-100vh) translateX(0px) rotate(0deg);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
+    transform: translateY(-10vh) translateX(0px) rotate(0deg);
     opacity: 1;
   }
   100% {
-    transform: translateY(100vh) translateX(var(--drift-x, 0px)) rotate(360deg);
+    transform: translateY(110vh) translateX(var(--drift-x, 0px)) rotate(360deg);
     opacity: 0;
   }
 }
@@ -106,117 +100,90 @@
   }
 }
 
-/* Hero Section - Gold Shimmer Waves */
-@keyframes gold-shimmer-waves {
+/* Hero Section - Golden Dust Trails */
+@keyframes golden-dust-trail-animation {
   0% {
-    transform: translateX(-100%) skewX(-15deg);
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.6;
-  }
-  100% {
-    transform: translateX(200%) skewX(-15deg);
-    opacity: 0;
-  }
-}
-
-@keyframes light-rays-hero {
-  0%, 100% {
-    opacity: 0.2;
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    opacity: 0.4;
-    transform: translateY(-10px) rotate(2deg);
-  }
-}
-
-/* Event Details - Twilight Sky with Lanterns */
-@keyframes twilight-glow {
-  0%, 100% {
-    background-position: 0% 50%;
-    opacity: 0.3;
-  }
-  50% {
-    background-position: 100% 50%;
-    opacity: 0.5;
-  }
-}
-
-@keyframes floating-lanterns {
-  0% {
-    transform: translateY(100%) translateX(0px) scale(0.8);
+    transform: translateY(100vh) translateX(0px) scale(0.5);
     opacity: 0;
   }
   20% {
     opacity: 0.8;
   }
   80% {
-    opacity: 0.8;
+    opacity: 0.6;
   }
   100% {
-    transform: translateY(-100%) translateX(var(--lantern-drift, 20px)) scale(1.1);
+    transform: translateY(-20vh) translateX(30px) scale(1.2);
     opacity: 0;
   }
 }
 
-/* Memories Gallery - Film Reel and Photo Particles */
-@keyframes film-reel-scroll {
-  0% {
-    transform: translateX(-100%);
+@keyframes golden-dust-trail-fade {
+  0%, 100% {
+    opacity: 0.3;
   }
-  100% {
-    transform: translateX(100%);
+  50% {
+    opacity: 0.8;
   }
 }
 
-@keyframes photo-particles {
+/* Event Details - Celestial Constellations */
+@keyframes star-twinkle {
+  0%, 100% {
+    opacity: 0.4;
+    box-shadow: 0 0 6px rgba(251, 191, 36, 0.4);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.8), 0 0 30px rgba(251, 191, 36, 0.6);
+  }
+}
+
+@keyframes star-float {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(-10px) translateX(5px);
+  }
+}
+
+/* Memories Gallery - Soft Focus Bokeh */
+@keyframes bokeh-float {
   0% {
-    transform: translateY(100%) rotate(0deg) scale(0.5);
+    transform: translateY(100%) scale(0.5);
     opacity: 0;
   }
   25% {
     opacity: 0.6;
   }
   75% {
-    opacity: 0.6;
+    opacity: 0.4;
   }
   100% {
-    transform: translateY(-100%) rotate(180deg) scale(0.8);
+    transform: translateY(-100%) scale(1.5);
     opacity: 0;
   }
 }
 
-@keyframes vignette-glow {
+@keyframes bokeh-pulse {
   0%, 100% {
-    opacity: 0.2;
     transform: scale(1);
+    opacity: 0.3;
   }
   50% {
-    opacity: 0.4;
-    transform: scale(1.05);
+    transform: scale(1.3);
+    opacity: 0.7;
   }
 }
 
-/* Local Attractions - Scrolling Landscape */
-@keyframes rolling-hills {
+/* Local Attractions - Topographic Lines */
+@keyframes topographic-scroll {
   0% {
-    transform: translateX(0%);
+    background-position: 0% 0%;
   }
   100% {
-    transform: translateX(-50%);
-  }
-}
-
-@keyframes landmark-float {
-  0%, 100% {
-    transform: translateY(0px) scale(1);
-    opacity: 0.4;
-  }
-  50% {
-    transform: translateY(-15px) scale(1.1);
-    opacity: 0.6;
+    background-position: 100% 100%;
   }
 }
 
@@ -330,193 +297,82 @@
   --drift-x: 0px;
 }
 
-/* Hero Section - Gold Shimmer Waves */
-.hero-shimmer-wave {
+/* Hero Section - Golden Dust Trails */
+.golden-dust-trail {
   position: absolute;
-  width: 200%;
-  height: 100px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(251, 191, 36, 0.3),
-    rgba(245, 158, 11, 0.4),
-    rgba(251, 191, 36, 0.3),
-    transparent
-  );
-  animation: gold-shimmer-waves 8s ease-in-out infinite;
-  transform: skewX(-15deg);
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.8), rgba(245, 158, 11, 0.6), transparent);
+  border-radius: 50%;
+  filter: blur(1px);
+  animation: golden-dust-trail-animation linear infinite, golden-dust-trail-fade ease-in-out infinite;
 }
 
-.hero-light-ray {
+/* Event Details - Celestial Constellations */
+.celestial-star {
   position: absolute;
-  width: 2px;
-  height: 100%;
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    rgba(251, 191, 36, 0.4),
-    rgba(245, 158, 11, 0.3),
-    transparent
-  );
-  animation: light-rays-hero 6s ease-in-out infinite;
+  width: 4px;
+  height: 4px;
+  background: rgba(251, 191, 36, 0.8);
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(251, 191, 36, 0.4);
+  animation: star-twinkle ease-in-out infinite, star-float ease-in-out infinite;
 }
 
-/* Event Details - Twilight Sky with Lanterns */
-.twilight-sky {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(99, 102, 241, 0.2),
-    rgba(139, 92, 246, 0.3),
-    rgba(168, 85, 247, 0.2),
-    rgba(236, 72, 153, 0.2)
-  );
-  background-size: 400% 400%;
-  animation: twilight-glow 12s ease-in-out infinite;
-}
-
-.floating-lantern {
-  position: absolute;
-  width: 40px;
-  height: 60px;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(251, 191, 36, 0.6),
-    rgba(245, 158, 11, 0.4),
-    rgba(217, 119, 6, 0.2)
-  );
-  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-  animation: floating-lanterns 15s linear infinite;
-  --lantern-drift: 0px;
-}
-
-.floating-lantern::after {
+.celestial-star::before {
   content: '';
   position: absolute;
-  top: -10px;
+  top: -2px;
   left: 50%;
   transform: translateX(-50%);
-  width: 20px;
-  height: 10px;
-  background: rgba(251, 191, 36, 0.3);
-  border-radius: 50%;
+  width: 1px;
+  height: 8px;
+  background: rgba(251, 191, 36, 0.6);
 }
 
-/* Memories Gallery - Film Reel and Photo Particles */
-.film-reel-strip {
-  position: absolute;
-  top: 20%;
-  width: 200%;
-  height: 60px;
-  background: repeating-linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0.1) 0px,
-    rgba(0, 0, 0, 0.1) 20px,
-    transparent 20px,
-    transparent 40px
-  );
-  border-top: 2px solid rgba(0, 0, 0, 0.2);
-  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
-  animation: film-reel-scroll 20s linear infinite;
-}
-
-.film-reel-strip::before {
+.celestial-star::after {
   content: '';
   position: absolute;
   top: 50%;
-  left: 0;
-  width: 100%;
-  height: 20px;
+  left: -2px;
   transform: translateY(-50%);
-  background: repeating-linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0.3) 0px,
-    rgba(0, 0, 0, 0.3) 10px,
-    transparent 10px,
-    transparent 30px
-  );
+  width: 8px;
+  height: 1px;
+  background: rgba(251, 191, 36, 0.6);
 }
 
-.photo-particle {
+/* Memories Gallery - Soft Focus Bokeh */
+.bokeh-circle {
   position: absolute;
-  width: 30px;
-  height: 30px;
-  background: linear-gradient(
-    45deg,
-    rgba(236, 72, 153, 0.4),
-    rgba(219, 39, 119, 0.3),
-    rgba(190, 24, 93, 0.2)
-  );
-  border-radius: 4px;
-  animation: photo-particles 12s linear infinite;
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.3), rgba(219, 39, 119, 0.2), transparent);
+  border-radius: 50%;
+  filter: blur(8px);
+  animation: bokeh-float linear infinite, bokeh-pulse ease-in-out infinite;
 }
 
-.vignette-glow {
+/* Local Attractions - Topographic Lines */
+.topographic-background {
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-    circle at center,
-    transparent 30%,
-    rgba(236, 72, 153, 0.1) 70%,
-    rgba(219, 39, 119, 0.2) 100%
-  );
-  animation: vignette-glow 8s ease-in-out infinite;
-}
-
-/* Local Attractions - Rolling Hills Landscape */
-.rolling-hills {
-  position: absolute;
-  bottom: 0;
-  width: 200%;
-  height: 150px;
-  background: linear-gradient(
-    to right,
-    rgba(34, 197, 94, 0.3),
-    rgba(74, 222, 128, 0.2),
-    rgba(34, 197, 94, 0.3),
-    rgba(16, 185, 129, 0.2),
-    rgba(34, 197, 94, 0.3)
-  );
-  clip-path: polygon(
-    0% 100%,
-    0% 60%,
-    10% 50%,
-    20% 55%,
-    30% 45%,
-    40% 50%,
-    50% 40%,
-    60% 45%,
-    70% 35%,
-    80% 40%,
-    90% 30%,
-    100% 35%,
-    100% 100%
-  );
-  animation: rolling-hills 25s linear infinite;
-}
-
-.landmark-icon {
-  position: absolute;
-  width: 50px;
-  height: 50px;
   background: linear-gradient(
     45deg,
-    rgba(34, 197, 94, 0.5),
-    rgba(74, 222, 128, 0.4)
+    transparent 48%,
+    rgba(34, 197, 94, 0.1) 49%,
+    rgba(34, 197, 94, 0.1) 51%,
+    transparent 52%
+  ),
+  linear-gradient(
+    -45deg,
+    transparent 48%,
+    rgba(74, 222, 128, 0.08) 49%,
+    rgba(74, 222, 128, 0.08) 51%,
+    transparent 52%
   );
-  border-radius: 50%;
-  animation: landmark-float 8s ease-in-out infinite;
-}
-
-.landmark-icon::after {
-  content: '🏛️';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 24px;
-  opacity: 0.8;
+  background-size: 40px 40px, 60px 60px;
+  animation: topographic-scroll 20s linear infinite;
+  opacity: 0.4;
 }
 
 /* Guest Wishes - Purple Stars (keeping) */
@@ -1526,30 +1382,23 @@
     height: 10px;
   }
 
-  .hero-shimmer-wave {
-    height: 60px;
+  .golden-dust-trail {
+    width: 6px;
+    height: 6px;
   }
 
-  .floating-lantern {
-    width: 30px;
-    height: 45px;
+  .celestial-star {
+    width: 3px;
+    height: 3px;
   }
 
-  .film-reel-strip {
+  .bokeh-circle {
+    width: 40px;
     height: 40px;
   }
 
-  .rolling-hills {
-    height: 100px;
-  }
-
-  .landmark-icon {
-    width: 35px;
-    height: 35px;
-  }
-
-  .landmark-icon::after {
-    font-size: 18px;
+  .topographic-background {
+    background-size: 30px 30px, 45px 45px;
   }
 }
 
@@ -1592,15 +1441,10 @@
     display: none;
   }
 
-  .hero-shimmer-wave,
-  .hero-light-ray,
-  .twilight-sky,
-  .floating-lantern,
-  .film-reel-strip,
-  .photo-particle,
-  .vignette-glow,
-  .rolling-hills,
-  .landmark-icon,
+  .golden-dust-trail,
+  .celestial-star,
+  .bokeh-circle,
+  .topographic-background,
   .wishes-star,
   .invitation-sparkle,
   .contact-wave {
