@@ -118,9 +118,10 @@ const AcceptInvitation = forwardRef<HTMLDivElement, AcceptInvitationProps>(
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-8 animate-title-glow bg-gradient-to-r from-amber-700 via-yellow-800 to-amber-900 bg-clip-text text-transparent">
+          <h2 className="text-display md:text-5xl font-serif-elegant font-bold mb-8 animate-title-glow bg-gradient-to-r from-amber-700 via-yellow-800 to-amber-900 bg-clip-text text-transparent">
             Will You Join Us?
           </h2>
-          <p className="text-amber-900 font-bold text-xl mb-12 leading-relaxed max-w-2xl mx-auto animate-fade-in-up bg-gradient-to-r from-amber-800 via-yellow-800 to-amber-900 bg-clip-text text-transparent">
+          <p className="text-amber-900 font-sans-clean font-medium text-body-large mb-12 leading-relaxed max-w-2xl mx-auto animate-fade-in-up bg-gradient-to-r from-amber-800 via-yellow-800 to-amber-900 bg-clip-text text-transparent">
             Your presence would make our celebration even more special. 
             We can't wait to share this joyous moment with you!
           </p>
@@ -138,7 +139,7 @@ const AcceptInvitation = forwardRef<HTMLDivElement, AcceptInvitationProps>(
               <button
                 onClick={handleAccept}
                 disabled={showAnimation}
-                className="sweeping-light-card group relative bg-gradient-to-r from-amber-400 to-amber-600 text-white font-bold px-12 py-6 rounded-full text-xl shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed animate-button-bounce"
+                className="sweeping-light-card group relative bg-gradient-to-r from-amber-400 to-amber-600 text-white font-sans-clean font-semibold px-12 py-6 rounded-full text-body-large shadow-2xl btn-lift disabled:opacity-50 disabled:cursor-not-allowed animate-button-bounce will-change-transform"
               >
                 <span className="flex items-center space-x-3">
                   <Heart size={24} className="group-hover:animate-pulse" />
@@ -155,8 +156,8 @@ const AcceptInvitation = forwardRef<HTMLDivElement, AcceptInvitationProps>(
                   <div className="w-16 h-16 bg-gradient-to-r from-amber-500 to-yellow-600 rounded-full flex items-center justify-center mx-auto mb-4 animate-bounce">
                     <Heart size={32} className="text-white" />
                   </div>
-                  <h3 className="text-2xl font-serif font-bold text-amber-900 mb-2">Thank you, dear guest</h3>
-                  <p className="text-amber-800 font-bold">
+                  <h3 className="text-heading-2 font-serif-elegant font-bold text-amber-900 mb-2">Thank you, dear guest</h3>
+                  <p className="text-amber-800 font-sans-clean font-medium">
                     We're thrilled that you'll be joining us for this special celebration!
                   </p>
                 </div>
@@ -165,7 +166,7 @@ const AcceptInvitation = forwardRef<HTMLDivElement, AcceptInvitationProps>(
           </div>
 
           {!isAccepted && (
-            <p className="text-amber-800 font-bold mt-6 text-sm animate-fade-in-delayed">
+            <p className="text-amber-800 font-sans-clean font-medium mt-6 text-caption animate-fade-in-delayed">
               Click to confirm your attendance
             </p>
           )}

@@ -52,11 +52,14 @@ const SaveTheDatePage: React.FC<SaveTheDatePageProps> = ({ onContinue }) => {
           {/* Couple Photo */}
           <div className="mb-8 flex justify-center">
             <div className="relative">
-              <div className="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-amber-300 shadow-2xl animate-photo-glow">
+              <div className="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-amber-300 shadow-2xl animate-photo-glow will-change-transform">
                 <img
                   src="https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?auto=compress&cs=tinysrgb&w=400"
                   alt="Anniversary Couple"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover img-optimized"
+                  loading="eager"
+                  decoding="async"
+                  sizes="(max-width: 768px) 192px, 224px"
                 />
               </div>
               <div className="absolute -inset-2 rounded-full bg-gradient-to-r from-amber-400 to-amber-600 opacity-20 animate-pulse"></div>
@@ -65,17 +68,17 @@ const SaveTheDatePage: React.FC<SaveTheDatePageProps> = ({ onContinue }) => {
 
           {/* Guest Name - Matching "You're Invited" gradient with Typewriter Animation */}
           <div className="mb-6">
-            <p className="text-3xl md:text-4xl font-bold italic animate-typewriter bg-gradient-to-r from-[#8A2387] via-[#E94057] to-[#F27121] bg-clip-text text-transparent">
+            <p className="text-heading-2 md:text-display font-serif-elegant font-medium italic animate-typewriter bg-gradient-to-r from-[#8A2387] via-[#E94057] to-[#F27121] bg-clip-text text-transparent">
               Dear Priya
             </p>
           </div>
 
           {/* Main Heading with Custom Gradient Glow and Float Animation */}
           <div className="mb-8">
-            <h1 className="text-4xl md:text-6xl font-serif mb-4 drop-shadow-lg animate-gradient-glow-float bg-gradient-to-r from-[#8A2387] via-[#E94057] to-[#F27121] bg-clip-text text-transparent">
+            <h1 className="text-display md:text-6xl font-serif-elegant mb-4 drop-shadow-lg animate-gradient-glow-float bg-gradient-to-r from-[#8A2387] via-[#E94057] to-[#F27121] bg-clip-text text-transparent will-change-transform">
               You're Invited
             </h1>
-            <p className="text-xl md:text-2xl font-bold italic animate-fade-in-delayed bg-gradient-to-r from-[#8A2387] via-[#E94057] to-[#F27121] bg-clip-text text-transparent">
+            <p className="text-body-large md:text-heading-2 font-sans-clean font-medium italic animate-fade-in-delayed bg-gradient-to-r from-[#8A2387] via-[#E94057] to-[#F27121] bg-clip-text text-transparent">
               To celebrate 25 years of love & togetherness
             </p>
           </div>
@@ -84,24 +87,24 @@ const SaveTheDatePage: React.FC<SaveTheDatePageProps> = ({ onContinue }) => {
           <div className="mb-12 space-y-4">
             <div className="flex items-center justify-center space-x-3 animate-slide-in-left">
               <Calendar size={24} className="text-amber-300" />
-              <span className="text-lg md:text-xl bg-gradient-to-r from-[#8A2387] via-[#E94057] to-[#F27121] bg-clip-text text-transparent font-bold">December 15, 2024</span>
+              <span className="text-body-large md:text-heading-2 bg-gradient-to-r from-[#8A2387] via-[#E94057] to-[#F27121] bg-clip-text text-transparent font-sans-clean font-semibold">December 15, 2024</span>
             </div>
             <div className="flex items-center justify-center space-x-3 animate-slide-in-right">
               <Clock size={24} className="text-amber-300" />
-              <span className="text-lg md:text-xl bg-gradient-to-r from-[#8A2387] via-[#E94057] to-[#F27121] bg-clip-text text-transparent font-bold">6:00 PM onwards</span>
+              <span className="text-body-large md:text-heading-2 bg-gradient-to-r from-[#8A2387] via-[#E94057] to-[#F27121] bg-clip-text text-transparent font-sans-clean font-semibold">6:00 PM onwards</span>
             </div>
             <div className="flex items-center justify-center space-x-3 animate-slide-in-left">
               <MapPin size={24} className="text-amber-300" />
-              <span className="text-lg md:text-xl bg-gradient-to-r from-[#8A2387] via-[#E94057] to-[#F27121] bg-clip-text text-transparent font-bold">Grand Ballroom, Hotel Elegance</span>
+              <span className="text-body-large md:text-heading-2 bg-gradient-to-r from-[#8A2387] via-[#E94057] to-[#F27121] bg-clip-text text-transparent font-sans-clean font-semibold">Grand Ballroom, Hotel Elegance</span>
             </div>
           </div>
 
           {/* Continue Button - Matching "You're Invited" gradient text */}
           <button
             onClick={onContinue}
-            className="group bg-gradient-to-r from-amber-400 to-amber-600 px-8 py-4 rounded-full text-lg font-medium shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 animate-button-bounce"
+            className="group bg-gradient-to-r from-amber-400 to-amber-600 px-8 py-4 rounded-full text-body-large font-sans-clean font-medium btn-lift animate-button-bounce will-change-transform"
           >
-            <span className="group-hover:mr-2 transition-all duration-300 bg-gradient-to-r from-[#8A2387] via-[#E94057] to-[#F27121] bg-clip-text text-transparent font-bold">
+            <span className="group-hover:mr-2 transition-all duration-300 bg-gradient-to-r from-[#8A2387] via-[#E94057] to-[#F27121] bg-clip-text text-transparent font-sans-clean font-semibold">
               See Full Invitation
             </span>
             <span className="inline-block group-hover:translate-x-1 transition-transform duration-300">

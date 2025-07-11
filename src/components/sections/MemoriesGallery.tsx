@@ -68,6 +68,7 @@ const MemoriesGallery = forwardRef<HTMLDivElement, MemoriesGalleryProps>(
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           <h2 className={`text-4xl md:text-5xl font-serif font-bold text-center mb-16 bg-gradient-to-r from-amber-700 via-yellow-800 to-amber-900 bg-clip-text text-transparent ${
+          <h2 className={`text-display md:text-5xl font-serif-elegant font-bold text-center mb-16 bg-gradient-to-r from-amber-700 via-yellow-800 to-amber-900 bg-clip-text text-transparent ${
             hasAnimated ? 'animate__animated animate__slideInLeft' : ''
           }`}
           style={{ animationDuration: '1s' }}>
@@ -76,29 +77,32 @@ const MemoriesGallery = forwardRef<HTMLDivElement, MemoriesGalleryProps>(
 
           {/* Main Carousel */}
           <div className="relative mb-12">
-            <div className="sweeping-light-card relative h-96 md:h-[500px] overflow-hidden rounded-2xl shadow-2xl">
+            <div className="sweeping-light-card relative h-96 md:h-[500px] overflow-hidden rounded-2xl shadow-2xl will-change-transform">
               <img
                 src={memories[currentIndex].url}
                 alt={memories[currentIndex].title}
-                className="w-full h-full object-cover transition-transform duration-500"
+                className="w-full h-full object-cover transition-transform duration-500 img-optimized"
+                loading="lazy"
+                decoding="async"
+                sizes="(max-width: 768px) 100vw, 1200px"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
               <div className="absolute bottom-6 left-6">
-                <h3 className="text-2xl font-bold mb-2 text-white animate-ink-spread-text">{memories[currentIndex].title}</h3>
-                <p className="text-amber-300 font-bold text-lg animate-split-reveal-text">{memories[currentIndex].year}</p>
+                <h3 className="text-heading-2 font-serif-elegant font-bold mb-2 text-white animate-ink-spread-text">{memories[currentIndex].title}</h3>
+                <p className="text-amber-300 font-sans-clean font-semibold text-body-large animate-split-reveal-text">{memories[currentIndex].year}</p>
               </div>
             </div>
 
             {/* Navigation Buttons */}
             <button
               onClick={prevSlide}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-3 transition-all duration-300"
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 backdrop-blur-sm rounded-full p-3 nav-arrow will-change-transform"
             >
               <ChevronLeft size={24} className="text-white" />
             </button>
             <button
               onClick={nextSlide}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-3 transition-all duration-300"
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 backdrop-blur-sm rounded-full p-3 nav-arrow will-change-transform"
             >
               <ChevronRight size={24} className="text-white" />
             </button>
@@ -119,7 +123,10 @@ const MemoriesGallery = forwardRef<HTMLDivElement, MemoriesGalleryProps>(
                 <img
                   src={memory.url}
                   alt={memory.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover img-optimized"
+                  loading="lazy"
+                  decoding="async"
+                  sizes="(max-width: 768px) 20vw, 120px"
                 />
                 <div className="absolute inset-0 bg-black/20"></div>
               </button>

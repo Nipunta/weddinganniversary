@@ -59,12 +59,13 @@ const LocalAttractions = forwardRef<HTMLDivElement, LocalAttractionsProps>(
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           <h2 className={`text-4xl md:text-5xl font-serif font-bold text-center mb-4 bg-gradient-to-r from-amber-700 via-yellow-800 to-amber-900 bg-clip-text text-transparent ${
+          <h2 className={`text-display md:text-5xl font-serif-elegant font-bold text-center mb-4 bg-gradient-to-r from-amber-700 via-yellow-800 to-amber-900 bg-clip-text text-transparent ${
             hasAnimated ? 'animate__animated animate__bounceIn' : ''
           }`}
           style={{ animationDuration: '1s' }}>
             Local Attractions
           </h2>
-          <p className="text-amber-900 font-bold text-center text-lg mb-16 animate-fade-in-up bg-gradient-to-r from-amber-800 via-yellow-800 to-amber-900 bg-clip-text text-transparent">
+          <p className="text-amber-900 font-sans-clean font-medium text-center text-body-large mb-16 animate-fade-in-up bg-gradient-to-r from-amber-800 via-yellow-800 to-amber-900 bg-clip-text text-transparent">
             Explore these wonderful places while you're in town
           </p>
 
@@ -72,7 +73,7 @@ const LocalAttractions = forwardRef<HTMLDivElement, LocalAttractionsProps>(
             {attractions.map((attraction, index) => (
               <div
                 key={attraction.id}
-                className={`sweeping-light-card group bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 transform ${
+                className={`sweeping-light-card group bg-white/10 backdrop-blur-sm rounded-2xl overflow-hidden shadow-xl card-float-enhanced transform will-change-transform ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                 } ${
                   index === 0 ? 'animate-card-float' : 
@@ -84,7 +85,10 @@ const LocalAttractions = forwardRef<HTMLDivElement, LocalAttractionsProps>(
                   <img
                     src={attraction.image}
                     alt={attraction.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 img-optimized"
+                    loading="lazy"
+                    decoding="async"
+                    sizes="(max-width: 768px) 100vw, 400px"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                   <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm rounded-full p-2">
@@ -100,19 +104,19 @@ const LocalAttractions = forwardRef<HTMLDivElement, LocalAttractionsProps>(
 
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-xl font-bold group-hover:text-amber-700 transition-colors duration-300 animate-ink-spread-text bg-gradient-to-r from-amber-700 via-yellow-800 to-amber-900 bg-clip-text text-transparent">
+                    <h3 className="text-body-large font-serif-elegant font-bold group-hover:text-amber-700 transition-colors duration-300 animate-ink-spread-text bg-gradient-to-r from-amber-700 via-yellow-800 to-amber-900 bg-clip-text text-transparent">
                       {attraction.name}
                     </h3>
-                    <span className="text-amber-300 text-sm font-bold">
+                    <span className="text-amber-300 text-caption font-sans-clean font-semibold">
                       {attraction.distance}
                     </span>
                   </div>
                   
-                  <p className="text-amber-800 font-bold text-sm mb-3 animate-split-reveal-text">
+                  <p className="text-amber-800 font-sans-clean font-semibold text-caption mb-3 animate-split-reveal-text">
                     {attraction.type}
                   </p>
                   
-                  <p className="text-amber-900 font-bold text-sm leading-relaxed animate-split-reveal-text">
+                  <p className="text-amber-900 font-sans-clean font-medium text-caption leading-relaxed animate-split-reveal-text">
                     {attraction.description}
                   </p>
                 </div>
@@ -121,7 +125,7 @@ const LocalAttractions = forwardRef<HTMLDivElement, LocalAttractionsProps>(
           </div>
 
           <div className="text-center mt-12">
-            <p className="text-amber-900 font-bold text-lg animate-fade-in-delayed bg-gradient-to-r from-amber-800 via-yellow-800 to-amber-900 bg-clip-text text-transparent">
+            <p className="text-amber-900 font-sans-clean font-medium text-body-large animate-fade-in-delayed bg-gradient-to-r from-amber-800 via-yellow-800 to-amber-900 bg-clip-text text-transparent">
               Need directions or recommendations? Our concierge team is here to help!
             </p>
           </div>

@@ -90,6 +90,7 @@ const GuestWishes = forwardRef<HTMLDivElement, GuestWishesProps>(
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-center mb-16 animate-title-glow bg-gradient-to-r from-amber-700 via-yellow-800 to-amber-900 bg-clip-text text-transparent">
+          <h2 className="text-display md:text-5xl font-serif-elegant font-bold text-center mb-16 animate-title-glow bg-gradient-to-r from-amber-700 via-yellow-800 to-amber-900 bg-clip-text text-transparent">
             Guest Wishes Wall
           </h2>
 
@@ -112,16 +113,19 @@ const GuestWishes = forwardRef<HTMLDivElement, GuestWishesProps>(
                           <img
                             src={wish.photo}
                             alt={wish.name}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover img-optimized"
+                            loading="lazy"
+                            decoding="async"
+                            sizes="48px"
                           />
                         </div>
                         <div>
-                          <p className="font-bold italic animate-ink-spread-text bg-gradient-to-r from-yellow-600 via-amber-700 to-yellow-800 bg-clip-text text-transparent">{wish.name}</p>
-                          <p className="text-amber-800 font-bold text-sm animate-split-reveal-text">{wish.timestamp}</p>
+                          <p className="font-serif-elegant font-semibold italic animate-ink-spread-text bg-gradient-to-r from-yellow-600 via-amber-700 to-yellow-800 bg-clip-text text-transparent">{wish.name}</p>
+                          <p className="text-amber-800 font-sans-clean font-medium text-caption animate-split-reveal-text">{wish.timestamp}</p>
                         </div>
                       </div>
                       <Heart className="text-pink-400 mb-4" size={32} />
-                      <p className="text-amber-900 font-bold text-lg mb-4 leading-relaxed animate-split-reveal-text">
+                      <p className="text-amber-900 font-sans-clean font-medium text-body-large mb-4 leading-relaxed animate-split-reveal-text">
                         "{wish.message}"
                       </p>
                     </div>
@@ -132,7 +136,7 @@ const GuestWishes = forwardRef<HTMLDivElement, GuestWishesProps>(
                 <div className="flex justify-between items-center mt-6">
                   <button
                     onClick={prevWish}
-                    className="p-2 bg-white/10 hover:bg-white/20 rounded-full transition-all duration-300 hover:scale-110"
+                    className="p-2 bg-white/10 rounded-full nav-arrow will-change-transform"
                   >
                     <ChevronLeft size={24} className="text-amber-800" />
                   </button>
@@ -153,7 +157,7 @@ const GuestWishes = forwardRef<HTMLDivElement, GuestWishesProps>(
 
                   <button
                     onClick={nextWish}
-                    className="p-2 bg-white/10 hover:bg-white/20 rounded-full transition-all duration-300 hover:scale-110"
+                    className="p-2 bg-white/10 rounded-full nav-arrow will-change-transform"
                   >
                     <ChevronRight size={24} className="text-amber-800" />
                   </button>
@@ -171,15 +175,15 @@ const GuestWishes = forwardRef<HTMLDivElement, GuestWishesProps>(
               {!showWishForm ? (
                 <div className="flex flex-col items-center justify-center h-full text-center">
                   <MessageSquare size={64} className="text-amber-400 mb-6" />
-                  <h3 className="text-2xl font-bold mb-4 animate-ink-spread-text bg-gradient-to-r from-amber-700 via-yellow-800 to-amber-900 bg-clip-text text-transparent">
+                  <h3 className="text-heading-2 font-serif-elegant font-bold mb-4 animate-ink-spread-text bg-gradient-to-r from-amber-700 via-yellow-800 to-amber-900 bg-clip-text text-transparent">
                     Share Your Wishes
                   </h3>
-                  <p className="text-amber-900 font-bold mb-8 text-lg">
+                  <p className="text-amber-900 font-sans-clean font-medium mb-8 text-body-large">
                     Leave a heartfelt message for the happy couple
                   </p>
                   <button
                     onClick={() => setShowWishForm(true)}
-                    className="bg-gradient-to-r from-amber-400 to-amber-600 text-white font-bold px-8 py-4 rounded-full text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300 flex items-center space-x-2"
+                    className="bg-gradient-to-r from-amber-400 to-amber-600 text-white font-sans-clean font-semibold px-8 py-4 rounded-full text-body-large btn-lift flex items-center space-x-2 will-change-transform"
                   >
                     <MessageSquare size={24} />
                     <span>Write a Wish</span>
@@ -188,10 +192,10 @@ const GuestWishes = forwardRef<HTMLDivElement, GuestWishesProps>(
               ) : (
                 <div>
                   <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-2xl font-bold animate-ink-spread-text bg-gradient-to-r from-amber-700 via-yellow-800 to-amber-900 bg-clip-text text-transparent">Share Your Wishes</h3>
+                    <h3 className="text-heading-2 font-serif-elegant font-bold animate-ink-spread-text bg-gradient-to-r from-amber-700 via-yellow-800 to-amber-900 bg-clip-text text-transparent">Share Your Wishes</h3>
                     <button
                       onClick={() => setShowWishForm(false)}
-                      className="p-2 hover:bg-white/10 rounded-full transition-colors duration-300"
+                      className="p-2 hover:bg-white/10 rounded-full nav-arrow"
                     >
                       <X size={20} className="text-amber-800" />
                     </button>
@@ -199,7 +203,7 @@ const GuestWishes = forwardRef<HTMLDivElement, GuestWishesProps>(
                   
                   <form onSubmit={handleSubmitWish} className="space-y-6">
                     <div>
-                      <label className="block text-amber-900 font-bold mb-2 animate-split-reveal-text">Upload Your Photo (Optional)</label>
+                      <label className="block text-amber-900 font-sans-clean font-semibold mb-2 animate-split-reveal-text">Upload Your Photo (Optional)</label>
                       <div className="relative">
                         <input
                           type="file"
@@ -210,7 +214,7 @@ const GuestWishes = forwardRef<HTMLDivElement, GuestWishesProps>(
                         />
                         <label
                           htmlFor="photo-upload"
-                          className="flex items-center justify-center w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-amber-800 font-bold cursor-pointer hover:bg-white/20 transition-all duration-300"
+                          className="flex items-center justify-center w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-amber-800 font-sans-clean font-medium cursor-pointer btn-lift"
                         >
                           <Upload size={20} className="mr-2" />
                           <span>{newWish.photo ? 'Photo Selected' : 'Choose Photo'}</span>
@@ -228,12 +232,12 @@ const GuestWishes = forwardRef<HTMLDivElement, GuestWishesProps>(
                     </div>
 
                     <div>
-                      <label className="block text-amber-900 font-bold mb-2 animate-split-reveal-text">Your Message</label>
+                      <label className="block text-amber-900 font-sans-clean font-semibold mb-2 animate-split-reveal-text">Your Message</label>
                       <textarea
                         value={newWish.message}
                         onChange={(e) => setNewWish(prev => ({ ...prev, message: e.target.value }))}
                         rows={4}
-                        className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-amber-900 font-bold placeholder-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-400 transition-all duration-300 resize-none"
+                        className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-amber-900 font-sans-clean font-medium placeholder-amber-700 focus:outline-none resize-none input-glow"
                         placeholder="Share your heartfelt wishes..."
                         required
                       />
@@ -241,7 +245,7 @@ const GuestWishes = forwardRef<HTMLDivElement, GuestWishesProps>(
 
                     <button
                       type="submit"
-                      className="w-full bg-gradient-to-r from-amber-400 to-amber-600 text-white font-bold py-3 rounded-lg flex items-center justify-center space-x-2 hover:shadow-lg transform hover:scale-105 transition-all duration-300"
+                      className="w-full bg-gradient-to-r from-amber-400 to-amber-600 text-white font-sans-clean font-semibold py-3 rounded-lg flex items-center justify-center space-x-2 btn-lift will-change-transform"
                     >
                       <Send size={20} />
                       <span>Send Wishes</span>

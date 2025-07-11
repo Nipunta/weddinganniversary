@@ -122,10 +122,10 @@ const EntrancePage: React.FC<EntrancePageProps> = ({ onEnter }) => {
         <div className="flex items-center justify-center min-h-screen relative z-10">
           <div className="text-center">
             <div className="mb-8">
-              <h1 className="text-4xl md:text-6xl font-serif mb-2 animate-anniversary-entrance bg-gradient-to-r from-amber-600 via-orange-600 to-red-700 bg-clip-text text-transparent hover:animate-text-glow transition-all duration-300 ease-in-out">
+              <h1 className="text-display md:text-6xl font-serif-elegant mb-2 animate-anniversary-entrance bg-gradient-to-r from-amber-600 via-orange-600 to-red-700 bg-clip-text text-transparent hover:animate-text-glow transition-all duration-300 ease-in-out">
                 Anniversary Celebration
               </h1>
-              <p className="bg-gradient-to-r from-amber-700 via-orange-700 to-red-800 bg-clip-text text-transparent text-lg md:text-xl font-bold italic animate-fade-in-up">
+              <p className="bg-gradient-to-r from-amber-700 via-orange-700 to-red-800 bg-clip-text text-transparent text-body-large md:text-heading-2 font-sans-clean font-medium italic animate-fade-in-up">
                 A journey of 25 beautiful years
               </p>
             </div>
@@ -133,7 +133,7 @@ const EntrancePage: React.FC<EntrancePageProps> = ({ onEnter }) => {
             <button
               onClick={handleEnter}
               disabled={isAnimating}
-              className="group relative p-8 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105 disabled:opacity-50 overflow-hidden"
+              className="group relative p-8 rounded-full shadow-2xl btn-lift disabled:opacity-50 overflow-hidden will-change-transform"
               style={{
                 backgroundImage: `url('/w2.webp')`,
                 backgroundSize: 'cover',
@@ -151,6 +151,7 @@ const EntrancePage: React.FC<EntrancePageProps> = ({ onEnter }) => {
             </button>
 
             <p className="bg-gradient-to-r from-amber-700 via-orange-700 to-red-800 bg-clip-text text-transparent mt-6 text-sm md:text-base font-bold animate-fade-in-delayed">
+            <p className="bg-gradient-to-r from-amber-700 via-orange-700 to-red-800 bg-clip-text text-transparent mt-6 text-caption md:text-body font-sans-clean font-medium animate-fade-in-delayed">
               Touch to enter
             </p>
           </div>

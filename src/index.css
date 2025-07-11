@@ -3,6 +3,156 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Enhanced Typography System */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Typography Scale and Hierarchy */
+.text-display {
+  font-size: 4rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.text-heading-1 {
+  font-size: 3rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.text-heading-2 {
+  font-size: 2rem;
+  line-height: 1.3;
+  letter-spacing: -0.005em;
+}
+
+.text-body-large {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
+.text-body {
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+}
+
+.text-caption {
+  font-size: 0.875rem;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+
+/* Font Family Classes */
+.font-serif-elegant {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-sans-clean {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Enhanced Text Colors */
+.text-elegant-dark {
+  color: #1a1a1a;
+}
+
+.text-warm-gray {
+  color: #4a4a4a;
+}
+
+/* Micro-interaction Classes */
+.btn-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-lift:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15), 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-lift:active {
+  transform: translateY(-1px) scale(0.98);
+  transition-duration: 0.1s;
+}
+
+.card-float-enhanced {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-float-enhanced:hover {
+  transform: translateY(-8px) rotateZ(0.5deg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12), 0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+.link-elegant {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.link-elegant::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #fbbf24, #f59e0b);
+  transition: width 0.3s ease;
+}
+
+.link-elegant:hover::after {
+  width: 100%;
+}
+
+.link-elegant:hover {
+  color: #f59e0b;
+}
+
+.input-glow {
+  transition: all 0.3s ease;
+}
+
+.input-glow:focus {
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.3), 0 4px 12px rgba(251, 191, 36, 0.15);
+  border-color: #fbbf24;
+  transform: translateY(-1px);
+}
+
+.nav-arrow {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-arrow:hover {
+  transform: scale(1.15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.nav-arrow:active {
+  transform: scale(1.05);
+}
+
+/* Performance Optimizations */
+.will-change-transform {
+  will-change: transform, opacity;
+}
+
+.will-change-auto {
+  will-change: auto;
+}
+
+/* Image Optimization Classes */
+.img-optimized {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+.img-lazy {
+  loading: lazy;
+  decoding: async;
+}
+
 /* Luxurious Dynamic Background for Save The Date */
 @keyframes lux-gradient-shift {
   0% {
