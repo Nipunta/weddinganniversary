@@ -1,5 +1,4 @@
 import React, { forwardRef } from 'react';
-import { Phone, Mail, MapPin } from 'lucide-react';
 
 interface ContactSectionProps {
   isVisible: boolean;
@@ -9,57 +8,46 @@ interface ContactSectionProps {
 const ContactSection = forwardRef<HTMLDivElement, ContactSectionProps>(
   ({ isVisible, sectionIndex }, ref) => {
     return (
-      <div
+      <section 
         ref={ref}
-        className={`min-h-screen flex items-center justify-center px-4 transition-all duration-1000 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}
+        data-section={sectionIndex}
+        className="py-20 px-4"
       >
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-gray-800 mb-12">
-            Get in Touch
+        <div className={`max-w-4xl mx-auto transition-all duration-1000 delay-800 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}>
+          <h2 className="text-4xl md:text-5xl font-serif font-bold text-center mb-4 animate-title-slide bg-gradient-to-r from-amber-700 via-yellow-800 to-amber-900 bg-clip-text text-transparent">
+            Need More Info?
           </h2>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white/80 backdrop-blur-sm rounded-lg p-6 shadow-lg">
-              <Phone className="w-12 h-12 text-rose-500 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">Call Us</h3>
-              <a 
-                href="tel:+1234567890" 
-                className="text-gray-600 hover:text-rose-500 transition-colors"
-              >
-                +1 (234) 567-8900
-              </a>
-            </div>
-            
-            <div className="bg-white/80 backdrop-blur-sm rounded-lg p-6 shadow-lg">
-              <Mail className="w-12 h-12 text-rose-500 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">Email Us</h3>
-              <a 
-                href="mailto:celebration@example.com" 
-                className="text-gray-600 hover:text-rose-500 transition-colors"
-              >
-                celebration@example.com
-              </a>
-            </div>
-            
-            <div className="bg-white/80 backdrop-blur-sm rounded-lg p-6 shadow-lg">
-              <MapPin className="w-12 h-12 text-rose-500 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">Visit Us</h3>
-              <p className="text-gray-600">
-                123 Celebration Street<br />
-                Love City, LC 12345
+          <p className="text-amber-900 font-bold text-center text-lg mb-16 animate-fade-in-up bg-gradient-to-r from-amber-800 via-yellow-800 to-amber-900 bg-clip-text text-transparent">
+            We're here to help with any questions you might have
+          </p>
+
+          <div className="text-center space-y-4">
+            <div className="sweeping-light-card bg-white/10 backdrop-blur-sm rounded-2xl p-8 shadow-xl animate-card-float">
+              <p className="text-amber-900 font-bold text-lg mb-2 animate-ink-spread-text">
+                📞 Call us: <a href="tel:+919876543210" className="text-amber-700 hover:text-amber-600 font-bold transition-colors duration-300">+91 98765 43210</a>
+              </p>
+              <p className="text-amber-900 font-bold text-lg animate-split-reveal-text">
+                ✉️ Email us: <a href="mailto:celebrate@anniversary.com" className="text-amber-700 hover:text-amber-600 font-bold transition-colors duration-300">celebrate@anniversary.com</a>
               </p>
             </div>
           </div>
-          
-          <div className="mt-12">
-            <p className="text-lg text-gray-600">
-              Have questions? We'd love to hear from you!
-            </p>
+
+          <div className="text-center mt-16">
+            <div className="sweeping-light-card bg-white/5 backdrop-blur-sm rounded-2xl p-8 animate-card-slide">
+              <h3 className="text-2xl font-bold mb-4 animate-ink-spread-text bg-gradient-to-r from-amber-700 via-yellow-800 to-amber-900 bg-clip-text text-transparent">
+                Thank you for being part of our journey
+              </h3>
+              <p className="text-amber-900 font-bold text-lg leading-relaxed max-w-2xl mx-auto animate-split-reveal-text">
+                Your love and support over the years have meant the world to us. 
+                We look forward to celebrating this milestone with all our dear friends and family.
+              </p>
+              <div className="mt-6 text-amber-300 text-2xl">💖</div>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
     );
   }
 );

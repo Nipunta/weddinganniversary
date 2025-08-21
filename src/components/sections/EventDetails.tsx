@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { Calendar, Clock, MapPin, Users } from 'lucide-react';
+import { Calendar, Clock, MapPin, Shirt, Map } from 'lucide-react';
 
 interface EventDetailsProps {
   isVisible: boolean;
@@ -8,55 +8,80 @@ interface EventDetailsProps {
 
 const EventDetails = forwardRef<HTMLDivElement, EventDetailsProps>(
   ({ isVisible, sectionIndex }, ref) => {
+    const handleViewLocation = () => {
+      // Open Google Maps with the venue location
+      window.open('https://maps.google.com/?q=Grand+Ballroom+Hotel+Elegance+Mumbai', '_blank');
+    };
+
     return (
-      <div
+      <section 
         ref={ref}
-        className={`min-h-screen flex items-center justify-center px-4 transition-all duration-1000 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}
+        data-section={sectionIndex}
+        className="py-20 px-4"
       >
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl font-bold text-gray-800 mb-12">
+        <div className={`max-w-6xl mx-auto transition-all duration-1000 delay-200 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}>
+          <h2 className="text-4xl md:text-5xl font-serif font-bold text-center mb-16 animate-title-glow bg-gradient-to-r from-amber-700 via-yellow-800 to-amber-900 bg-clip-text text-transparent">
             Event Details
           </h2>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white/80 backdrop-blur-sm rounded-lg p-8 shadow-lg">
-              <Calendar className="w-16 h-16 text-rose-500 mx-auto mb-6" />
-              <h3 className="text-2xl font-semibold text-gray-800 mb-4">Date</h3>
-              <p className="text-xl text-gray-600 mb-2">Saturday</p>
-              <p className="text-2xl font-bold text-rose-600">December 15, 2024</p>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Date & Time Card */}
+            <div className="sweeping-light-card bg-white/10 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 animate-card-float">
+              <div className="text-center">
+                <div className="bg-gradient-to-r from-amber-400 to-amber-600 p-4 rounded-full w-16 h-16 mx-auto mb-6">
+                  <Calendar className="text-white" size={32} />
+                </div>
+                <h3 className="text-2xl font-bold mb-2 animate-ink-spread-text bg-gradient-to-r from-amber-700 via-yellow-800 to-amber-900 bg-clip-text text-transparent">Date & Time</h3>
+                <p className="text-amber-900 font-bold text-lg mb-1 animate-split-reveal-text">December 15, 2024</p>
+                <p className="text-amber-900 font-bold text-lg mb-1 animate-split-reveal-text">Saturday</p>
+                <p className="text-amber-800 font-bold flex items-center justify-center space-x-2 animate-split-reveal-text">
+                  <Clock size={16} />
+                  <span>6:00 PM onwards</span>
+                </p>
+              </div>
             </div>
-            
-            <div className="bg-white/80 backdrop-blur-sm rounded-lg p-8 shadow-lg">
-              <Clock className="w-16 h-16 text-rose-500 mx-auto mb-6" />
-              <h3 className="text-2xl font-semibold text-gray-800 mb-4">Time</h3>
-              <p className="text-xl text-gray-600 mb-2">Ceremony</p>
-              <p className="text-2xl font-bold text-rose-600">6:00 PM</p>
+
+            {/* Venue Card */}
+            <div className="sweeping-light-card bg-white/10 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 animate-card-slide">
+              <div className="text-center">
+                <div className="bg-gradient-to-r from-blue-500 to-cyan-500 p-4 rounded-full w-16 h-16 mx-auto mb-6">
+                  <MapPin className="text-white" size={32} />
+                </div>
+                <h3 className="text-2xl font-bold mb-4 animate-ink-spread-text bg-gradient-to-r from-amber-700 via-yellow-800 to-amber-900 bg-clip-text text-transparent">Venue</h3>
+                <p className="text-amber-900 font-bold text-lg mb-1 animate-split-reveal-text">Grand Ballroom</p>
+                <p className="text-amber-900 font-bold text-lg mb-2 animate-split-reveal-text">Hotel Elegance</p>
+                <p className="text-amber-800 font-bold text-sm mb-6 animate-split-reveal-text">
+                  123 Celebration Avenue<br />
+                  Mumbai, Maharashtra 400001
+                </p>
+                
+                <button 
+                  onClick={handleViewLocation}
+                  className="flex items-center space-x-2 bg-amber-500 hover:bg-amber-600 text-white font-bold px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 mx-auto"
+                >
+                  <Map size={20} />
+                  <span>View Location</span>
+                </button>
+              </div>
             </div>
-            
-            <div className="bg-white/80 backdrop-blur-sm rounded-lg p-8 shadow-lg">
-              <MapPin className="w-16 h-16 text-rose-500 mx-auto mb-6" />
-              <h3 className="text-2xl font-semibold text-gray-800 mb-4">Venue</h3>
-              <p className="text-lg text-gray-600 mb-2">Grand Celebration Hall</p>
-              <p className="text-gray-500">123 Anniversary Avenue<br />Love City, LC 12345</p>
+
+            {/* Dress Code Card */}
+            <div className="sweeping-light-card bg-white/10 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 animate-card-bounce">
+              <div className="text-center">
+                <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-4 rounded-full w-16 h-16 mx-auto mb-6">
+                  <Shirt className="text-white" size={32} />
+                </div>
+                <h3 className="text-2xl font-bold mb-2 animate-ink-spread-text bg-gradient-to-r from-amber-700 via-yellow-800 to-amber-900 bg-clip-text text-transparent">Dress Code</h3>
+                <p className="text-amber-900 font-bold text-lg mb-2 animate-split-reveal-text">Cocktail Attire</p>
+                <p className="text-amber-800 font-bold animate-split-reveal-text">Semi-formal preferred</p>
+                <div className="mt-4 text-amber-300">✨</div>
+              </div>
             </div>
-            
-            <div className="bg-white/80 backdrop-blur-sm rounded-lg p-8 shadow-lg">
-              <Users className="w-16 h-16 text-rose-500 mx-auto mb-6" />
-              <h3 className="text-2xl font-semibold text-gray-800 mb-4">Dress Code</h3>
-              <p className="text-lg text-gray-600 mb-2">Semi-Formal</p>
-              <p className="text-gray-500">Elegant attire requested</p>
-            </div>
-          </div>
-          
-          <div className="mt-12 bg-gradient-to-r from-rose-100 to-amber-100 rounded-lg p-6">
-            <p className="text-lg text-gray-700">
-              Join us for an evening of love, laughter, and celebration as we commemorate this special milestone in our journey together.
-            </p>
           </div>
         </div>
-      </div>
+      </section>
     );
   }
 );

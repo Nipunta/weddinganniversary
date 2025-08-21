@@ -1,105 +1,132 @@
-import React, { forwardRef, useState } from 'react';
-import { ChevronLeft, ChevronRight, Heart } from 'lucide-react';
+import React, { forwardRef, useState, useEffect } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface MemoriesGalleryProps {
   isVisible: boolean;
   sectionIndex: number;
 }
 
+const memories = [
+  {
+    id: 1,
+    url: 'https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?auto=compress&cs=tinysrgb&w=600',
+    title: 'Wedding Day Bliss',
+    year: '1999'
+  },
+  {
+    id: 2,
+    url: 'https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg?auto=compress&cs=tinysrgb&w=600',
+    title: 'First Anniversary',
+    year: '2000'
+  },
+  {
+    id: 3,
+    url: 'https://images.pexels.com/photos/2959192/pexels-photo-2959192.jpeg?auto=compress&cs=tinysrgb&w=600',
+    title: 'Family Vacation',
+    year: '2005'
+  },
+  {
+    id: 4,
+    url: 'https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?auto=compress&cs=tinysrgb&w=600',
+    title: 'Celebration Time',
+    year: '2010'
+  },
+  {
+    id: 5,
+    url: 'https://images.pexels.com/photos/1444442/pexels-photo-1444442.jpeg?auto=compress&cs=tinysrgb&w=600',
+    title: 'Recent Memories',
+    year: '2023'
+  }
+];
+
 const MemoriesGallery = forwardRef<HTMLDivElement, MemoriesGalleryProps>(
   ({ isVisible, sectionIndex }, ref) => {
-    const [currentImage, setCurrentImage] = useState(0);
-    
-    // Sample images - replace with actual memory photos
-    const memories = [
-      {
-        url: 'https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg?auto=compress&cs=tinysrgb&w=800',
-        caption: 'Our first dance together'
-      },
-      {
-        url: 'https://images.pexels.com/photos/1729931/pexels-photo-1729931.jpeg?auto=compress&cs=tinysrgb&w=800',
-        caption: 'A beautiful moment captured'
-      },
-      {
-        url: 'https://images.pexels.com/photos/1024992/pexels-photo-1024992.jpeg?auto=compress&cs=tinysrgb&w=800',
-        caption: 'Celebrating together'
-      }
-    ];
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [hasAnimated, setHasAnimated] = useState(false);
 
-    const nextImage = () => {
-      setCurrentImage((prev) => (prev + 1) % memories.length);
+    useEffect(() => {
+      if (isVisible && !hasAnimated) {
+        setHasAnimated(true);
+      }
+    }, [isVisible, hasAnimated]);
+
+    const nextSlide = () => {
+      setCurrentIndex((prev) => (prev + 1) % memories.length);
     };
 
-    const prevImage = () => {
-      setCurrentImage((prev) => (prev - 1 + memories.length) % memories.length);
+    const prevSlide = () => {
+      setCurrentIndex((prev) => (prev - 1 + memories.length) % memories.length);
     };
 
     return (
-      <div
+      <section 
         ref={ref}
-        className={`min-h-screen flex items-center justify-center px-4 transition-all duration-1000 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}
+        data-section={sectionIndex}
+        className="py-20 px-4"
       >
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="mb-8">
-            <Heart className="w-16 h-16 text-rose-500 mx-auto mb-6" />
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">
-              Our Memories
-            </h2>
-            <p className="text-lg text-gray-600">
-              A collection of beautiful moments from our journey together
-            </p>
+        <div className={`max-w-6xl mx-auto transition-all duration-1000 delay-400 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}>
+          <h2 className={`text-4xl md:text-5xl font-serif font-bold text-center mb-16 bg-gradient-to-r from-amber-700 via-yellow-800 to-amber-900 bg-clip-text text-transparent ${
+            hasAnimated ? 'animate__animated animate__slideInLeft' : ''
+          }`}
+          style={{ animationDuration: '1s' }}>
+            Our Precious Memories
+          </h2>
+
+          {/* Main Carousel */}
+          <div className="relative mb-12">
+            <div className="sweeping-light-card relative h-96 md:h-[500px] overflow-hidden rounded-2xl shadow-2xl">
+              <img
+                src={memories[currentIndex].url}
+                alt={memories[currentIndex].title}
+                className="w-full h-full object-cover transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+              <div className="absolute bottom-6 left-6">
+                <h3 className="text-2xl font-bold mb-2 text-white animate-ink-spread-text">{memories[currentIndex].title}</h3>
+                <p className="text-amber-300 font-bold text-lg animate-split-reveal-text">{memories[currentIndex].year}</p>
+              </div>
+            </div>
+
+            {/* Navigation Buttons */}
+            <button
+              onClick={prevSlide}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-3 transition-all duration-300"
+            >
+              <ChevronLeft size={24} className="text-white" />
+            </button>
+            <button
+              onClick={nextSlide}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-3 transition-all duration-300"
+            >
+              <ChevronRight size={24} className="text-white" />
+            </button>
           </div>
 
-          <div className="relative bg-white/80 backdrop-blur-sm rounded-lg p-6 shadow-lg">
-            <div className="relative aspect-video rounded-lg overflow-hidden mb-4">
-              <img
-                src={memories[currentImage].url}
-                alt={memories[currentImage].caption}
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-              
+          {/* Thumbnail Grid */}
+          <div className="grid grid-cols-5 gap-4">
+            {memories.map((memory, index) => (
               <button
-                onClick={prevImage}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-all"
+                key={memory.id}
+                onClick={() => setCurrentIndex(index)}
+                className={`sweeping-light-card relative aspect-square rounded-lg overflow-hidden transition-all duration-300 ${
+                  index === currentIndex 
+                    ? 'ring-4 ring-amber-400 scale-105' 
+                    : 'hover:scale-105 opacity-70 hover:opacity-100'
+                }`}
               >
-                <ChevronLeft className="w-6 h-6" />
-              </button>
-              
-              <button
-                onClick={nextImage}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-all"
-              >
-                <ChevronRight className="w-6 h-6" />
-              </button>
-            </div>
-            
-            <p className="text-lg text-gray-700 mb-4">
-              {memories[currentImage].caption}
-            </p>
-            
-            <div className="flex justify-center space-x-2">
-              {memories.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentImage(index)}
-                  className={`w-3 h-3 rounded-full transition-all ${
-                    index === currentImage ? 'bg-rose-500' : 'bg-gray-300'
-                  }`}
+                <img
+                  src={memory.url}
+                  alt={memory.title}
+                  className="w-full h-full object-cover"
                 />
-              ))}
-            </div>
-          </div>
-          
-          <div className="mt-8">
-            <p className="text-sm text-gray-500">
-              {currentImage + 1} of {memories.length}
-            </p>
+                <div className="absolute inset-0 bg-black/20"></div>
+              </button>
+            ))}
           </div>
         </div>
-      </div>
+      </section>
     );
   }
 );
