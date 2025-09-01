@@ -3,6 +3,99 @@
 @tailwind components;
 @tailwind utilities;
 
+/* SVG Pattern Animations */
+@keyframes pattern-drift {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  25% {
+    transform: translateX(5px) translateY(-3px);
+  }
+  50% {
+    transform: translateX(-3px) translateY(5px);
+  }
+  75% {
+    transform: translateX(3px) translateY(-2px);
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+}
+
+@keyframes pattern-float {
+  0% {
+    transform: translateX(0) translateY(0) scale(1);
+  }
+  33% {
+    transform: translateX(-2px) translateY(3px) scale(1.02);
+  }
+  66% {
+    transform: translateX(2px) translateY(-2px) scale(0.98);
+  }
+  100% {
+    transform: translateX(0) translateY(0) scale(1);
+  }
+}
+
+@keyframes flowing-pattern {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateX(10px) translateY(-5px) rotate(90deg);
+  }
+  50% {
+    transform: translateX(-5px) translateY(10px) rotate(180deg);
+  }
+  75% {
+    transform: translateX(5px) translateY(-8px) rotate(270deg);
+  }
+  100% {
+    transform: translateX(0) translateY(0) rotate(360deg);
+  }
+}
+
+@keyframes gentle-gradient-shift {
+  0% {
+    background: linear-gradient(135deg, 
+      rgba(139, 69, 19, 0.3) 0%,
+      rgba(218, 165, 32, 0.25) 50%,
+      rgba(160, 82, 45, 0.3) 100%
+    );
+  }
+  50% {
+    background: linear-gradient(225deg, 
+      rgba(184, 134, 11, 0.3) 0%,
+      rgba(245, 158, 11, 0.25) 50%,
+      rgba(217, 119, 6, 0.3) 100%
+    );
+  }
+  100% {
+    background: linear-gradient(135deg, 
+      rgba(139, 69, 19, 0.3) 0%,
+      rgba(218, 165, 32, 0.25) 50%,
+      rgba(160, 82, 45, 0.3) 100%
+    );
+  }
+}
+
+/* Animation Classes */
+.animate-pattern-drift {
+  animation: pattern-drift 20s ease-in-out infinite;
+}
+
+.animate-pattern-float {
+  animation: pattern-float 25s ease-in-out infinite;
+}
+
+.animate-flowing-pattern {
+  animation: flowing-pattern 30s linear infinite;
+}
+
+.animate-gentle-gradient-shift {
+  animation: gentle-gradient-shift 12s ease-in-out infinite;
+}
+
 /* Luxurious Dynamic Background for Save The Date */
 @keyframes lux-gradient-shift {
   0% {

@@ -176,12 +176,26 @@ const FullInvitationPage: React.FC = () => {
 
   return (
     <div className="min-h-screen relative">
-      {/* Dynamic Animated Background */}
+      {/* Patterned Background */}
       <div className="fixed inset-0 overflow-hidden">
-        {/* Flowing Gradient Waves - DARKER GRADIENT */}
-        <div className="absolute inset-0 animate-flowing-waves opacity-30">
-          <div className="absolute inset-0 bg-gradient-to-br from-amber-700/10 via-yellow-800/10 to-orange-700/10"></div>
-        </div>
+        {/* SVG Pattern Background */}
+        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <defs>
+            <pattern id="luxuryDamask" x="0" y="0" width="15" height="15" patternUnits="userSpaceOnUse">
+              <circle cx="7.5" cy="7.5" r="1.5" fill="rgba(251, 191, 36, 0.08)" />
+              <path d="M3,3 Q7.5,1 12,3 Q10,7.5 12,12 Q7.5,14 3,12 Q5,7.5 3,3 Z" fill="rgba(245, 158, 11, 0.05)" />
+            </pattern>
+            <pattern id="geometricLux" x="0" y="0" width="25" height="25" patternUnits="userSpaceOnUse">
+              <rect x="10" y="10" width="5" height="5" fill="rgba(217, 119, 6, 0.04)" />
+              <circle cx="12.5" cy="12.5" r="2" stroke="rgba(251, 191, 36, 0.06)" strokeWidth="0.5" fill="none" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#luxuryDamask)" className="animate-pattern-drift" />
+          <rect width="100%" height="100%" fill="url(#geometricLux)" className="animate-pattern-float" />
+        </svg>
+        
+        {/* Base Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-amber-50/80 via-yellow-50/70 to-orange-50/80"></div>
         
         {/* Floating Orbs */}
         <div className="absolute inset-0">
@@ -203,15 +217,10 @@ const FullInvitationPage: React.FC = () => {
           <div className="absolute top-0 left-2/4 w-px h-full bg-gradient-to-b from-transparent via-yellow-300/20 to-transparent transform -rotate-6"></div>
           <div className="absolute top-0 left-3/4 w-px h-full bg-gradient-to-b from-transparent via-orange-300/25 to-transparent transform rotate-8"></div>
         </div>
-
-        {/* Natural Falling Petals - Enhanced Vertical Movement */}
-        <div className="absolute inset-0 pointer-events-none">
-          {generateFallingPetals()}
-        </div>
       </div>
 
       <div className="relative z-10">
-        {/* Hero Section - REMOVED Golden Dust Trails */}
+        {/* Hero Section */}
         <HeroSection 
           ref={(el) => addSectionRef(el, 0)}
           isVisible={visibleSections.has(0)}
