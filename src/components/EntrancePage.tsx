@@ -53,13 +53,26 @@ const EntrancePage: React.FC<EntrancePageProps> = ({ onEnter }) => {
 
   return (
     <div className="min-h-screen relative overflow-hidden">
-      {/* Background Image - New image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url('/w2 copy copy.webp')`,
-        }}
-      />
+      {/* Moving SVG Pattern Background */}
+      <div className="absolute inset-0">
+        <svg className="absolute inset-0 w-full h-full animate-flowing-pattern" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <defs>
+            <pattern id="elegantPattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+              <circle cx="10" cy="10" r="2" fill="rgba(251, 191, 36, 0.1)" />
+              <path d="M5,5 L15,15 M15,5 L5,15" stroke="rgba(245, 158, 11, 0.08)" strokeWidth="0.5" />
+            </pattern>
+            <pattern id="floralMotif" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+              <path d="M15,5 Q20,10 15,15 Q10,10 15,5 Z" fill="rgba(217, 119, 6, 0.06)" />
+              <circle cx="15" cy="15" r="1" fill="rgba(251, 191, 36, 0.12)" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#elegantPattern)" className="animate-pattern-drift" />
+          <rect width="100%" height="100%" fill="url(#floralMotif)" className="animate-pattern-float" />
+        </svg>
+        
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-amber-900/20 via-yellow-800/15 to-orange-900/20"></div>
+      </div>
 
       {/* Floating Sparkles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -77,11 +90,6 @@ const EntrancePage: React.FC<EntrancePageProps> = ({ onEnter }) => {
             <div className="text-amber-300 text-xs opacity-70">✨</div>
           </div>
         ))}
-      </div>
-
-      {/* Entrance Falling Petals */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {generateEntrancePetals()}
       </div>
 
       {/* Ripple Animation */}
