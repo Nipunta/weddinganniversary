@@ -233,7 +233,7 @@ const GuestWishes = forwardRef<HTMLDivElement, GuestWishesProps>(
                         value={newWish.message}
                         onChange={(e) => setNewWish(prev => ({ ...prev, message: e.target.value }))}
                         rows={4}
-                        className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-amber-900 font-bold placeholder-amber-700 focus:outline-none focus:ring-2 focus:ring-amber-400 transition-all duration-300 resize-none"
+                        className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg font-bold placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-purple-400 transition-all duration-300 resize-none bg-gradient-to-r from-slate-700 via-gray-700 to-zinc-800 bg-clip-text text-transparent"
                         placeholder="Share your heartfelt wishes..."
                         required
                       />

@@ -121,7 +121,7 @@ const LocalAttractions = forwardRef<HTMLDivElement, LocalAttractionsProps>(
           </div>
 
           <div className="text-center mt-12">
-            <p className="text-amber-900 font-bold text-lg animate-fade-in-delayed bg-gradient-to-r from-amber-800 via-yellow-800 to-amber-900 bg-clip-text text-transparent">
+            <p className="font-bold text-lg animate-fade-in-delayed bg-gradient-to-r from-indigo-700 via-blue-600 to-cyan-700 bg-clip-text text-transparent">
               Need directions or recommendations? Our concierge team is here to help!
             </p>
           </div>

@@ -98,11 +98,11 @@ const JourneyTimeline = forwardRef<HTMLDivElement, JourneyTimelineProps>(
                           <milestone.icon size={28} className="text-white" />
                         </div>
                         <div>
-                          <div className="text-amber-300 text-xl font-bold animate-scrambled-decode">{milestone.year}</div>
-                          <h3 className="text-2xl font-semibold text-amber-800 group-hover:text-amber-700 transition-colors duration-300 animate-flicker-text">{milestone.title}</h3>
+                          <div className="text-xl font-bold animate-scrambled-decode bg-gradient-to-r from-yellow-400 via-amber-400 to-orange-400 bg-clip-text text-transparent">{milestone.year}</div>
+                          <h3 className="text-2xl font-semibold transition-colors duration-300 animate-flicker-text bg-gradient-to-r from-emerald-700 via-teal-600 to-cyan-700 bg-clip-text text-transparent">{milestone.title}</h3>
                         </div>
                       </div>
-                      <p className="text-amber-900 text-lg leading-relaxed">{milestone.description}</p>
+                      <p className="text-lg leading-relaxed bg-gradient-to-r from-slate-700 via-gray-600 to-zinc-700 bg-clip-text text-transparent font-bold">{milestone.description}</p>
                     </div>
                   </div>
 

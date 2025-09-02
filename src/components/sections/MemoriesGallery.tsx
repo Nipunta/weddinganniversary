@@ -84,8 +84,8 @@ const MemoriesGallery = forwardRef<HTMLDivElement, MemoriesGalleryProps>(
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
               <div className="absolute bottom-6 left-6">
-                <h3 className="text-2xl font-bold mb-2 text-white animate-ink-spread-text">{memories[currentIndex].title}</h3>
-                <p className="text-amber-300 font-bold text-lg animate-split-reveal-text">{memories[currentIndex].year}</p>
+                <h3 className="text-2xl font-bold mb-2 animate-ink-spread-text bg-gradient-to-r from-cyan-300 via-blue-300 to-indigo-300 bg-clip-text text-transparent">{memories[currentIndex].title}</h3>
+                <p className="font-bold text-lg animate-split-reveal-text bg-gradient-to-r from-yellow-300 via-amber-300 to-orange-300 bg-clip-text text-transparent">{memories[currentIndex].year}</p>
               </div>
             </div>
 

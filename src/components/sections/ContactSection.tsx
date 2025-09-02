@@ -25,11 +25,11 @@ const ContactSection = forwardRef<HTMLDivElement, ContactSectionProps>(
 
           <div className="text-center space-y-4">
             <div className="sweeping-light-card bg-white/10 backdrop-blur-sm rounded-2xl p-8 shadow-xl animate-card-float">
-              <p className="text-amber-900 font-bold text-lg mb-2 animate-ink-spread-text">
-                📞 Call us: <a href="tel:+919876543210" className="text-amber-700 hover:text-amber-600 font-bold transition-colors duration-300">+91 98765 43210</a>
+              <p className="font-bold text-lg mb-2 animate-ink-spread-text bg-gradient-to-r from-emerald-700 via-teal-600 to-cyan-700 bg-clip-text text-transparent">
+                📞 Call us: <a href="tel:+919876543210" className="font-bold transition-colors duration-300 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent hover:from-blue-500 hover:via-indigo-500 hover:to-purple-500">+91 98765 43210</a>
               </p>
-              <p className="text-amber-900 font-bold text-lg animate-split-reveal-text">
-                ✉️ Email us: <a href="mailto:celebrate@anniversary.com" className="text-amber-700 hover:text-amber-600 font-bold transition-colors duration-300">celebrate@anniversary.com</a>
+              <p className="font-bold text-lg animate-split-reveal-text bg-gradient-to-r from-violet-700 via-purple-600 to-fuchsia-700 bg-clip-text text-transparent">
+                ✉️ Email us: <a href="mailto:celebrate@anniversary.com" className="font-bold transition-colors duration-300 bg-gradient-to-r from-rose-600 via-pink-600 to-purple-600 bg-clip-text text-transparent hover:from-rose-500 hover:via-pink-500 hover:to-purple-500">celebrate@anniversary.com</a>
               </p>
             </div>
           </div>
