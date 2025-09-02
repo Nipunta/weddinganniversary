@@ -10,12 +10,12 @@ const SaveTheDatePage: React.FC<SaveTheDatePageProps> = ({ onContinue }) => {
     <div className="min-h-screen relative overflow-hidden">
       {/* Dynamic Luxurious Background */}
       <div className="absolute inset-0">
-        {/* Refined Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-800/30 via-yellow-700/25 to-orange-800/30 animate-gentle-gradient-shift"></div>
+        {/* Refined Gradient Background - Simplified */}
+        <div className="absolute inset-0 bg-gradient-to-br from-amber-800/25 via-yellow-700/20 to-orange-800/25 animate-refined-gradient-shift"></div>
         
         {/* Shimmering Particles */}
         <div className="absolute inset-0 overflow-hidden">
-          {[...Array(15)].map((_, i) => (
+          {[...Array(12)].map((_, i) => (
             <div
               key={i}
               className="shimmer-particle"
