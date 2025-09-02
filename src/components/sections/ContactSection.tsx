@@ -39,10 +39,6 @@ const ContactSection = forwardRef<HTMLDivElement, ContactSectionProps>(
               <h3 className="text-2xl font-bold mb-4 animate-ink-spread-text bg-gradient-to-r from-amber-700 via-yellow-800 to-amber-900 bg-clip-text text-transparent">
                 Thank you for being part of our journey
               </h3>
-              <p className="text-amber-900 font-bold text-lg leading-relaxed max-w-2xl mx-auto animate-split-reveal-text">
-                Your love and support over the years have meant the world to us. 
-                We look forward to celebrating this milestone with all our dear friends and family.
-              </p>
               <div className="mt-6 text-amber-300 text-2xl">💖</div>
             </div>
           </div>

@@ -55,10 +55,6 @@ const HeroSection = forwardRef<HTMLDivElement, HeroSectionProps>(
           <p className={`text-xl md:text-2xl font-bold leading-relaxed max-w-2xl mx-auto bg-gradient-to-r from-amber-800 via-yellow-800 to-amber-900 bg-clip-text text-transparent ${
             hasAnimated ? 'animate__animated animate__fadeInUp' : ''
           }`}
-          style={{ animationDuration: '1.5s', animationDelay: '0.6s' }}>
-            Join us as we celebrate a quarter-century of love, laughter, 
-            and beautiful memories shared together
-          </p>
         </div>
       </section>
     );

@@ -79,6 +79,35 @@
   }
 }
 
+/* Refined Gradient Shift for Save The Date */
+@keyframes refined-gradient-shift {
+  0% {
+    background: linear-gradient(135deg, 
+      rgba(139, 69, 19, 0.25) 0%,
+      rgba(218, 165, 32, 0.20) 50%,
+      rgba(160, 82, 45, 0.25) 100%
+    );
+  }
+  50% {
+    background: linear-gradient(225deg, 
+      rgba(184, 134, 11, 0.25) 0%,
+      rgba(245, 158, 11, 0.20) 50%,
+      rgba(217, 119, 6, 0.25) 100%
+    );
+  }
+  100% {
+    background: linear-gradient(135deg, 
+      rgba(139, 69, 19, 0.25) 0%,
+      rgba(218, 165, 32, 0.20) 50%,
+      rgba(160, 82, 45, 0.25) 100%
+    );
+  }
+}
+
+.animate-refined-gradient-shift {
+  animation: refined-gradient-shift 8s ease-in-out infinite;
+}
+
 /* Animation Classes */
 .animate-pattern-drift {
   animation: pattern-drift 20s ease-in-out infinite;

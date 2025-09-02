@@ -120,10 +120,6 @@ const AcceptInvitation = forwardRef<HTMLDivElement, AcceptInvitationProps>(
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-8 animate-title-glow bg-gradient-to-r from-amber-700 via-yellow-800 to-amber-900 bg-clip-text text-transparent">
             Will You Join Us?
           </h2>
-          <p className="text-amber-900 font-bold text-xl mb-12 leading-relaxed max-w-2xl mx-auto animate-fade-in-up bg-gradient-to-r from-amber-800 via-yellow-800 to-amber-900 bg-clip-text text-transparent">
-            Your presence would make our celebration even more special. 
-            We can't wait to share this joyous moment with you!
-          </p>
 
           <div className="relative min-h-[200px] flex items-center justify-center">
             {showAnimation && (

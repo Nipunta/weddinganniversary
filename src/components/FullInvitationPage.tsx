@@ -178,46 +178,59 @@ const FullInvitationPage: React.FC = () => {
     <div className="min-h-screen relative">
       {/* Patterned Background */}
       <div className="fixed inset-0 overflow-hidden">
-        {/* Enhanced SVG Pattern Background inspired by motif design */}
-        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 200 200" preserveAspectRatio="none">
+        {/* Sophisticated SVG Pattern Background inspired by royal motif design */}
+        <svg className="absolute inset-0 w-full h-full" viewBox="0 0 300 300" preserveAspectRatio="none">
           <defs>
-            <pattern id="royalDamask" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
-              {/* Central ornate diamond motif */}
-              <path d="M25,8 L35,18 L25,28 L15,18 Z" fill="rgba(251, 191, 36, 0.1)" stroke="rgba(245, 158, 11, 0.12)" strokeWidth="0.5"/>
-              {/* Interlocking oval chains */}
-              <ellipse cx="25" cy="25" rx="12" ry="6" fill="none" stroke="rgba(217, 119, 6, 0.06)" strokeWidth="0.8"/>
-              <ellipse cx="25" cy="25" rx="6" ry="12" fill="none" stroke="rgba(217, 119, 6, 0.06)" strokeWidth="0.8"/>
-              {/* Corner decorative elements */}
-              <circle cx="8" cy="8" r="2" fill="rgba(251, 191, 36, 0.08)"/>
-              <circle cx="42" cy="8" r="2" fill="rgba(251, 191, 36, 0.08)"/>
-              <circle cx="8" cy="42" r="2" fill="rgba(251, 191, 36, 0.08)"/>
-              <circle cx="42" cy="42" r="2" fill="rgba(251, 191, 36, 0.08)"/>
-              {/* Connecting lines */}
-              <path d="M8,8 Q25,15 42,8" stroke="rgba(245, 158, 11, 0.04)" strokeWidth="0.5" fill="none"/>
-              <path d="M8,42 Q25,35 42,42" stroke="rgba(245, 158, 11, 0.04)" strokeWidth="0.5" fill="none"/>
+            <pattern id="imperialMotif" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+              {/* Large central ornate diamond */}
+              <path d="M40,15 L55,30 L40,45 L25,30 Z" fill="rgba(251, 191, 36, 0.12)" stroke="rgba(245, 158, 11, 0.15)" strokeWidth="0.8"/>
+              {/* Interlocking oval chains - larger */}
+              <ellipse cx="40" cy="40" rx="20" ry="10" fill="none" stroke="rgba(217, 119, 6, 0.08)" strokeWidth="1"/>
+              <ellipse cx="40" cy="40" rx="10" ry="20" fill="none" stroke="rgba(217, 119, 6, 0.08)" strokeWidth="1"/>
+              {/* Corner ornate elements */}
+              <circle cx="15" cy="15" r="4" fill="rgba(251, 191, 36, 0.1)" stroke="rgba(245, 158, 11, 0.08)" strokeWidth="0.5"/>
+              <circle cx="65" cy="15" r="4" fill="rgba(251, 191, 36, 0.1)" stroke="rgba(245, 158, 11, 0.08)" strokeWidth="0.5"/>
+              <circle cx="15" cy="65" r="4" fill="rgba(251, 191, 36, 0.1)" stroke="rgba(245, 158, 11, 0.08)" strokeWidth="0.5"/>
+              <circle cx="65" cy="65" r="4" fill="rgba(251, 191, 36, 0.1)" stroke="rgba(245, 158, 11, 0.08)" strokeWidth="0.5"/>
+              {/* Decorative crosses and flourishes */}
+              <path d="M40,5 L40,15 M35,10 L45,10" stroke="rgba(245, 158, 11, 0.12)" strokeWidth="1.2"/>
+              <path d="M40,65 L40,75 M35,70 L45,70" stroke="rgba(245, 158, 11, 0.12)" strokeWidth="1.2"/>
+              <path d="M5,40 L15,40 M10,35 L10,45" stroke="rgba(245, 158, 11, 0.12)" strokeWidth="1.2"/>
+              <path d="M65,40 L75,40 M70,35 L70,45" stroke="rgba(245, 158, 11, 0.12)" strokeWidth="1.2"/>
+              {/* Connecting ornate curves */}
+              <path d="M15,15 Q30,25 15,35 Q25,30 35,15" stroke="rgba(217, 119, 6, 0.06)" strokeWidth="0.6" fill="none"/>
+              <path d="M65,15 Q50,25 65,35 Q55,30 45,15" stroke="rgba(217, 119, 6, 0.06)" strokeWidth="0.6" fill="none"/>
+              <path d="M15,65 Q30,55 15,45 Q25,50 35,65" stroke="rgba(217, 119, 6, 0.06)" strokeWidth="0.6" fill="none"/>
+              <path d="M65,65 Q50,55 65,45 Q55,50 45,65" stroke="rgba(217, 119, 6, 0.06)" strokeWidth="0.6" fill="none"/>
             </pattern>
-            <pattern id="ornateGeometric" x="0" y="0" width="35" height="35" patternUnits="userSpaceOnUse">
-              {/* Complex geometric motif */}
-              <rect x="12" y="12" width="11" height="11" fill="rgba(217, 119, 6, 0.05)" stroke="rgba(251, 191, 36, 0.08)" strokeWidth="0.5"/>
-              <circle cx="17.5" cy="17.5" r="4" stroke="rgba(251, 191, 36, 0.08)" strokeWidth="0.6" fill="none"/>
-              <path d="M17.5,10 L24.5,17.5 L17.5,25 L10.5,17.5 Z" fill="none" stroke="rgba(245, 158, 11, 0.06)" strokeWidth="0.4"/>
-              {/* Corner flourishes */}
-              <path d="M5,5 Q10,8 5,12 Q8,10 12,5" stroke="rgba(217, 119, 6, 0.04)" strokeWidth="0.3" fill="none"/>
-              <path d="M30,5 Q25,8 30,12 Q27,10 23,5" stroke="rgba(217, 119, 6, 0.04)" strokeWidth="0.3" fill="none"/>
-              <path d="M5,30 Q10,27 5,23 Q8,25 12,30" stroke="rgba(217, 119, 6, 0.04)" strokeWidth="0.3" fill="none"/>
-              <path d="M30,30 Q25,27 30,23 Q27,25 23,30" stroke="rgba(217, 119, 6, 0.04)" strokeWidth="0.3" fill="none"/>
+            <pattern id="elegantLace" x="0" y="0" width="45" height="45" patternUnits="userSpaceOnUse">
+              {/* Lace-like intricate pattern */}
+              <circle cx="22.5" cy="22.5" r="12" fill="none" stroke="rgba(245, 158, 11, 0.06)" strokeWidth="0.8"/>
+              <circle cx="22.5" cy="22.5" r="6" fill="rgba(251, 191, 36, 0.08)"/>
+              <path d="M22.5,5 L22.5,15 M22.5,30 L22.5,40 M5,22.5 L15,22.5 M30,22.5 L40,22.5" stroke="rgba(217, 119, 6, 0.08)" strokeWidth="1"/>
+              <path d="M12,12 L18,18 M27,27 L33,33 M33,12 L27,18 M18,27 L12,33" stroke="rgba(245, 158, 11, 0.05)" strokeWidth="0.6"/>
+              {/* Small decorative dots */}
+              <circle cx="10" cy="10" r="1.5" fill="rgba(251, 191, 36, 0.1)"/>
+              <circle cx="35" cy="10" r="1.5" fill="rgba(251, 191, 36, 0.1)"/>
+              <circle cx="10" cy="35" r="1.5" fill="rgba(251, 191, 36, 0.1)"/>
+              <circle cx="35" cy="35" r="1.5" fill="rgba(251, 191, 36, 0.1)"/>
             </pattern>
-            <pattern id="vintageLace" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-              {/* Vintage lace pattern */}
-              <circle cx="15" cy="15" r="8" fill="none" stroke="rgba(245, 158, 11, 0.05)" strokeWidth="0.6"/>
-              <circle cx="15" cy="15" r="4" fill="rgba(251, 191, 36, 0.06)"/>
-              <path d="M15,3 L15,9 M15,21 L15,27 M3,15 L9,15 M21,15 L27,15" stroke="rgba(217, 119, 6, 0.07)" strokeWidth="0.8"/>
-              <path d="M7,7 L11,11 M19,19 L23,23 M23,7 L19,11 M11,19 L7,23" stroke="rgba(245, 158, 11, 0.04)" strokeWidth="0.4"/>
+            <pattern id="vintageFlourish" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+              {/* Vintage flourish pattern */}
+              <path d="M30,10 Q40,20 30,30 Q20,40 10,30 Q20,20 30,10 Z" fill="rgba(217, 119, 6, 0.06)" stroke="rgba(245, 158, 11, 0.08)" strokeWidth="0.5"/>
+              <path d="M30,30 Q40,40 30,50 Q20,60 10,50 Q20,40 30,30 Z" fill="rgba(217, 119, 6, 0.06)" stroke="rgba(245, 158, 11, 0.08)" strokeWidth="0.5"/>
+              {/* Connecting vine elements */}
+              <path d="M30,30 Q45,35 30,40" stroke="rgba(245, 158, 11, 0.05)" strokeWidth="0.8" fill="none"/>
+              <path d="M30,30 Q15,35 30,40" stroke="rgba(245, 158, 11, 0.05)" strokeWidth="0.8" fill="none"/>
+              <path d="M30,10 Q35,25 40,30" stroke="rgba(245, 158, 11, 0.05)" strokeWidth="0.8" fill="none"/>
+              <path d="M30,10 Q25,25 20,30" stroke="rgba(245, 158, 11, 0.05)" strokeWidth="0.8" fill="none"/>
+              {/* Central decorative element */}
+              <circle cx="30" cy="30" r="2" fill="rgba(251, 191, 36, 0.12)"/>
             </pattern>
           </defs>
-          <rect width="100%" height="100%" fill="url(#royalMotif)" className="animate-pattern-drift" />
-          <rect width="100%" height="100%" fill="url(#ornateGeometric)" className="animate-pattern-float" />
-          <rect width="100%" height="100%" fill="url(#vintageLace)" className="animate-flowing-pattern" />
+          <rect width="100%" height="100%" fill="url(#imperialMotif)" className="animate-pattern-drift" />
+          <rect width="100%" height="100%" fill="url(#elegantLace)" className="animate-pattern-float" />
+          <rect width="100%" height="100%" fill="url(#vintageFlourish)" className="animate-flowing-pattern" />
         </svg>
         
         {/* Base Gradient */}
