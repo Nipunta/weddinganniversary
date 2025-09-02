@@ -55,23 +55,47 @@ const EntrancePage: React.FC<EntrancePageProps> = ({ onEnter }) => {
     <div className="min-h-screen relative overflow-hidden">
       {/* Moving SVG Pattern Background */}
       <div className="absolute inset-0">
-        <svg className="absolute inset-0 w-full h-full animate-flowing-pattern" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <svg className="absolute inset-0 w-full h-full animate-flowing-pattern" viewBox="0 0 200 200" preserveAspectRatio="none">
           <defs>
-            <pattern id="elegantPattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-              <circle cx="10" cy="10" r="2" fill="rgba(251, 191, 36, 0.1)" />
-              <path d="M5,5 L15,15 M15,5 L5,15" stroke="rgba(245, 158, 11, 0.08)" strokeWidth="0.5" />
+            <pattern id="royalMotif" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+              {/* Central ornate diamond */}
+              <path d="M20,5 L30,15 L20,25 L10,15 Z" fill="rgba(251, 191, 36, 0.12)" stroke="rgba(245, 158, 11, 0.15)" strokeWidth="0.5"/>
+              {/* Interlocking circles */}
+              <circle cx="20" cy="20" r="8" fill="none" stroke="rgba(217, 119, 6, 0.08)" strokeWidth="0.8"/>
+              <circle cx="10" cy="10" r="4" fill="rgba(251, 191, 36, 0.06)"/>
+              <circle cx="30" cy="30" r="4" fill="rgba(251, 191, 36, 0.06)"/>
+              {/* Decorative crosses */}
+              <path d="M20,2 L20,8 M17,5 L23,5" stroke="rgba(245, 158, 11, 0.1)" strokeWidth="1"/>
+              <path d="M20,32 L20,38 M17,35 L23,35" stroke="rgba(245, 158, 11, 0.1)" strokeWidth="1"/>
+              <path d="M2,20 L8,20 M5,17 L5,23" stroke="rgba(245, 158, 11, 0.1)" strokeWidth="1"/>
+              <path d="M32,20 L38,20 M35,17 L35,23" stroke="rgba(245, 158, 11, 0.1)" strokeWidth="1"/>
             </pattern>
-            <pattern id="floralMotif" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-              <path d="M15,5 Q20,10 15,15 Q10,10 15,5 Z" fill="rgba(217, 119, 6, 0.06)" />
-              <circle cx="15" cy="15" r="1" fill="rgba(251, 191, 36, 0.12)" />
+            <pattern id="ornateFloral" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+              {/* Central floral motif */}
+              <path d="M30,15 Q35,20 30,25 Q25,30 20,25 Q15,20 20,15 Q25,10 30,15 Z" fill="rgba(217, 119, 6, 0.08)"/>
+              <path d="M30,35 Q35,40 30,45 Q25,50 20,45 Q15,40 20,35 Q25,30 30,35 Z" fill="rgba(217, 119, 6, 0.08)"/>
+              {/* Connecting vine patterns */}
+              <path d="M30,25 Q40,30 30,35" stroke="rgba(245, 158, 11, 0.06)" strokeWidth="1.5" fill="none"/>
+              <path d="M20,25 Q10,30 20,35" stroke="rgba(245, 158, 11, 0.06)" strokeWidth="1.5" fill="none"/>
+              {/* Small decorative dots */}
+              <circle cx="30" cy="30" r="1.5" fill="rgba(251, 191, 36, 0.15)"/>
+              <circle cx="15" cy="15" r="1" fill="rgba(251, 191, 36, 0.1)"/>
+              <circle cx="45" cy="45" r="1" fill="rgba(251, 191, 36, 0.1)"/>
+            </pattern>
+            <pattern id="geometricLace" x="0" y="0" width="25" height="25" patternUnits="userSpaceOnUse">
+              {/* Lace-like geometric pattern */}
+              <path d="M12.5,0 L25,12.5 L12.5,25 L0,12.5 Z" fill="none" stroke="rgba(245, 158, 11, 0.05)" strokeWidth="0.5"/>
+              <circle cx="12.5" cy="12.5" r="3" fill="none" stroke="rgba(251, 191, 36, 0.08)" strokeWidth="0.8"/>
+              <path d="M6,6 L19,19 M19,6 L6,19" stroke="rgba(217, 119, 6, 0.04)" strokeWidth="0.3"/>
             </pattern>
           </defs>
-          <rect width="100%" height="100%" fill="url(#elegantPattern)" className="animate-pattern-drift" />
-          <rect width="100%" height="100%" fill="url(#floralMotif)" className="animate-pattern-float" />
+          <rect width="100%" height="100%" fill="url(#royalMotif)" className="animate-pattern-drift" />
+          <rect width="100%" height="100%" fill="url(#ornateFloral)" className="animate-pattern-float" />
+          <rect width="100%" height="100%" fill="url(#geometricLace)" className="animate-flowing-pattern" />
         </svg>
         
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-900/20 via-yellow-800/15 to-orange-900/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-red-900/25 via-amber-800/20 to-orange-900/25"></div>
       </div>
 
       {/* Floating Sparkles */}
