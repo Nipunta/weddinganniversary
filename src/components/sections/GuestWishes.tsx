@@ -167,7 +167,9 @@ const GuestWishes = forwardRef<HTMLDivElement, GuestWishesProps>(
             </div>
 
             {/* Share Your Wishes Button or Form */}
-            <div className="sweeping-light-card bg-white/10 backdrop-blur-sm rounded-2xl p-8 shadow-xl animate-card-slide">
+            <div className="sweeping-light-card bg-white/10 backdrop-blur-sm rounded-2xl p-8 shadow-xl animate-card-slide border-4 border-transparent bg-gradient-to-r from-indigo-500 via-blue-500 to-cyan-500 bg-clip-border relative">
+              <div className="absolute inset-1 bg-white/10 backdrop-blur-sm rounded-xl"></div>
+              <div className="relative z-10">
               {!showWishForm ? (
                 <div className="flex flex-col items-center justify-center h-full text-center">
                   <MessageSquare size={64} className="text-amber-400 mb-6" />
@@ -249,6 +251,7 @@ const GuestWishes = forwardRef<HTMLDivElement, GuestWishesProps>(
                   </form>
                 </div>
               )}
+              </div>
             </div>
           </div>
         </div>

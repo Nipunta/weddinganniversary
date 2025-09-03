@@ -68,11 +68,14 @@ const EventDetails = forwardRef<HTMLDivElement, EventDetailsProps>(
             </div>
 
             {/* Dress Code Card */}
-            <div className="sweeping-light-card bg-white/10 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 animate-card-bounce">
+            <div className="sweeping-light-card bg-white/10 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 animate-card-bounce border-4 border-transparent bg-gradient-to-r from-purple-500 via-pink-500 to-rose-500 bg-clip-border relative">
+              <div className="absolute inset-1 bg-white/10 backdrop-blur-sm rounded-xl"></div>
+              <div className="relative z-10">
               <div className="text-center">
                 <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-4 rounded-full w-16 h-16 mx-auto mb-6">
                   <Shirt className="text-white" size={32} />
                 </div>
+              </div>
                 <h3 className="text-2xl font-bold mb-2 animate-ink-spread-text bg-gradient-to-r from-amber-700 via-yellow-800 to-amber-900 bg-clip-text text-transparent">Dress Code</h3>
                 <p className="font-bold text-lg mb-2 animate-split-reveal-text bg-gradient-to-r from-violet-700 via-purple-600 to-fuchsia-700 bg-clip-text text-transparent">Cocktail Attire</p>
                 <p className="font-bold animate-split-reveal-text bg-gradient-to-r from-emerald-700 via-green-600 to-teal-700 bg-clip-text text-transparent">Semi-formal preferred</p>
