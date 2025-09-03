@@ -155,10 +155,6 @@ const AcceptInvitation = forwardRef<HTMLDivElement, AcceptInvitationProps>(
                   <p className="text-amber-800 font-bold">
                     We're thrilled that you'll be joining us for this special celebration!
                   </p>
-                  <h3 className="text-2xl font-serif font-bold mb-2 bg-gradient-to-r from-emerald-700 via-teal-600 to-cyan-700 bg-clip-text text-transparent">Thank you, dear guest</h3>
-                  <p className="font-bold bg-gradient-to-r from-purple-700 via-violet-600 to-indigo-700 bg-clip-text text-transparent">
-                    We're thrilled that you'll be joining us for this special celebration!
-                  </p>
                 </div>
               </div>
             )}
